@@ -1,5 +1,10 @@
 en:
   simple_form:
+    options:
+      user:
+        gender:
+          male: 'Male'
+          female: 'Female'
     "yes": 'Yes'
     "no": 'No'
     required:
