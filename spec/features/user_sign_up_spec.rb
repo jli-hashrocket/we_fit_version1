@@ -26,6 +26,7 @@ Acceptance Criteria:
     fill_in "Username", with: "angrybear"
     fill_in "Password", with: "somepassword"
     fill_in "Password confirmation", with: "somepassword"
+    fill_in "Gender", with: "Male"
 
     click_on 'Sign up'
 
