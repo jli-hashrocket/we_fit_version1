@@ -62,4 +62,12 @@ Acceptance Criteria:
     expect(page).to have_content("Password confirmation doesn't match")
   end
 
+  scenario 'multiple physical activites are available' do
+    visit new_user_registration_path
+
+    expect(page).to have_content("weightlifting")
+    expect(page).to have_content("HIIT")
+    expect(page).to have_content("running")
+  end
+
 end
