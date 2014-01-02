@@ -12,5 +12,6 @@ FactoryGirl.define do
     username "Cure4Ever"
     password "L1pst1cknhairspr@y"
     password_confirmation "L1pst1cknhairspr@y"
+    gender "Male"
   end
 end

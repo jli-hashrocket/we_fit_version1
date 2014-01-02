@@ -26,8 +26,8 @@ Acceptance Criteria:
     fill_in "Username", with: "angrybear"
     fill_in "Password", with: "somepassword"
     fill_in "Password confirmation", with: "somepassword"
-
-    click_on 'Sign up'
+    select "male", from: "Gender"
+    click_on 'Create User'
 
     expect(page).to have_content("You have signed up successfully")
     expect(page).to have_content("Welcome #{first_name}")
@@ -35,12 +35,13 @@ Acceptance Criteria:
 
   scenario 'required info is not filled out' do
     visit new_user_registration_path
-    click_on 'Sign up'
+    click_on 'Create User'
 
     expect(page).to have_content("First name can't be blank")
     expect(page).to have_content("Last name can't be blank")
     expect(page).to have_content("Email can't be blank")
     expect(page).to have_content("Password can't be blank")
+    expect(page).to have_content("Gender can't be blank")
     expect(page).to_not have_content("Sign Out")
   end
 
@@ -53,10 +54,20 @@ Acceptance Criteria:
     fill_in "Email", with: new_email
     fill_in "Password", with: "password"
     fill_in "Password confirmation", with: "somepassword"
+    select "male", from: "Gender"
 
-    click_on 'Sign up'
+
+    click_on 'Create User'
 
     expect(page).to have_content("Password confirmation doesn't match")
+  end
+
+  scenario 'multiple physical activites are available' do
+    visit new_user_registration_path
+
+    expect(page).to have_content("weightlifting")
+    expect(page).to have_content("HIIT")
+    expect(page).to have_content("running")
   end
 
 end
