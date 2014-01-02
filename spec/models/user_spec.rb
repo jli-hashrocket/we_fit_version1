@@ -1,14 +1,13 @@
 require 'spec_helper'
 
 describe User do
-  user = FactoryGirl.create(:user)
-  it { should have_valid(:first_name).when(user.first_name) }
+  it { should have_valid(:first_name).when("Jeff") }
   it { should_not have_valid(:first_name).when(nil) }
 
-  it { should have_valid(:last_name).when(user.last_name) }
+  it { should have_valid(:last_name).when("Baker") }
   it { should_not have_valid(:last_name).when(nil) }
 
-  it { should have_valid(:username).when(user.username) }
+  it { should have_valid(:username).when("angrymoose") }
   it { should_not have_valid(:username).when(nil) }
 
   it { should have_many(:user_activities) }

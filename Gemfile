@@ -9,6 +9,9 @@ gem 'pg'
 # Use Foundation CSS framework
 gem 'foundation-rails'
 
+# Use Devise
+gem 'devise'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -41,7 +44,6 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'valid_attribute'
   gem 'shoulda'
-  gem 'devise'
   gem 'capybara'
 end
 
