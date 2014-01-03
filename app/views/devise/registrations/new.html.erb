@@ -1,6 +1,6 @@
 <h2>Sign up</h2>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<%= simple_form_for( resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <%= f.input :first_name, autofocus: true %>
@@ -15,6 +15,7 @@
   <%= f.input :gender, collection: [:male, :female] %>
   <%= f.input :preferred_gender, collection: ["Male","Female","Both"], label: "Looking For" %>
 
+  <%= f.association :activities, collection: Activity.all(order: 'name')  %>
   <%= f.button :submit, label:  "Sign up" %>
 <% end %>
 

@@ -13,4 +13,7 @@ class User < ActiveRecord::Base
     inverse_of: :user
   has_many :activities,
     through: :user_activities
+
+  accepts_nested_attributes_for :user_activities
+
 end
