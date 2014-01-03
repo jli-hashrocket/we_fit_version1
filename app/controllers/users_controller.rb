@@ -1,8 +1,15 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
   end
 
   def show
+    @user = User.find(params[:id])
+    @user_activities = @user.activities
+  end
+
+  def view_profile
     @user = User.find(params[:id])
   end
 
