@@ -6,4 +6,7 @@ class UserActivity < ActiveRecord::Base
     inverse_of: :user_activities
   belongs_to :activity,
     inverse_of: :user_activities
+
+  accepts_nested_attributes_for :user
+
 end

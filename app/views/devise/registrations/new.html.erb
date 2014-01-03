@@ -15,8 +15,7 @@
   <%= f.input :gender, collection: [:male, :female] %>
   <%= f.input :preferred_gender, collection: ["Male","Female","Both"], label: "Looking For" %>
 
-  <%= f.association :activities  %>
-
+  <%= f.association :activities, collection: Activity.all(order: 'name')  %>
   <%= f.button :submit, label:  "Sign up" %>
 <% end %>
 

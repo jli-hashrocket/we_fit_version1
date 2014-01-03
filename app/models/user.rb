@@ -14,6 +14,6 @@ class User < ActiveRecord::Base
   has_many :activities,
     through: :user_activities
 
-  accepts_nested_attributes_for :activities
+  accepts_nested_attributes_for :user_activities
 
 end
