@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   sequence :email do |n|
-    "cure#{n}@lovesong.com"
+    "hellogoodbye#{n}@lovesong.com"
   end
 
   factory :user do
