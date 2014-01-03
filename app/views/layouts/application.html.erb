@@ -21,11 +21,11 @@
         <div class="row">
           <div class="medium-2 columns">...</div>
           <div class="medium-8 columns">
-              <ul class="title-area">
-                <li class="name">
-                  <h1><a href="<%= root_path %>">WeFit</a></h1>
-                </li>
-               </ul>
+            <ul class="title-area">
+              <li class="name">
+                <h1><a href="<%= root_path %>">WeFit</a></h1>
+              </li>
+             </ul>
             <!-- Right Nav Section -->
             <ul class="right">
               <% if user_signed_in? %>
@@ -35,6 +35,11 @@
                 <li><%=link_to 'Sign Up', new_user_registration_path %></li>
               <% end %>
             </ul>
+            <ul class="left">
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">Browse</a></li>
+            </ul>
+
           </div>
           <div class="medium-2 columns">...</div>
         </div>
