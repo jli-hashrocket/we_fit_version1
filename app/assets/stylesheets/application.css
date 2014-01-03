@@ -13,3 +13,42 @@
 
  *= require_tree .
  */
+
+body{
+  letter-spacing: 0.01em;
+  line-height: 1.4em !important;
+}
+.top-bar, .top-bar-section ul{
+  border-bottom: 1px solid #E3F2FF !important;
+}
+.top-bar-section li a:not(.button){
+
+  line-height: 44px !important;
+}
+.row #nav{
+  background: #fff !important;
+}
+h1,h2,h3,h4,h5,h6{
+  color: #fff !important;
+  font-family: 'Fjalla One', sans-serif !important;
+  margin-bottom:40px !important;
+}
+input[type="checkbox"]{
+    width: 2% !important;
+
+}
+input[type="text"], input[type="password"],input[type="email"], textarea,#user_gender, #user_preferred_gender {
+  margin: -0.4rem 0 1rem 0 !important;
+  height: 1.9rem !important;
+  width: 35% !important;
+}
+#user_activity_ids{
+  width: 35% !important;
+}
+
+input#submit{
+  background-color: #6db3f2 !important
+}
+label{
+  color: #fff !important;
+}
