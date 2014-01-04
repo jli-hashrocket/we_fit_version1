@@ -9,8 +9,11 @@ class UsersController < ApplicationController
     @user_activities = @user.activities
   end
 
-  def view_profile
+  def edit
     @user = User.find(params[:id])
+  end
+
+  def udpate
   end
 
   private
