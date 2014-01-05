@@ -19,8 +19,7 @@
    <nav class="top-bar" data-topbar>
       <section class="top-bar-section">
         <div class="row">
-          <div class="medium-2 columns">...</div>
-          <div class="medium-8 columns">
+          <div class="medium-12 columns">
             <ul class="title-area">
               <li class="name">
                 <h1><a href="<%= root_path %>">WeFit</a></h1>
@@ -44,16 +43,17 @@
             </ul>
 
           </div>
-          <div class="medium-2 columns">...</div>
         </div>
       </section>
     </nav>
     <div class="row">
-      <div class="medium-12 columns">
-        <p class="notice"><%= notice %></p>
-        <p class="notice"><%= alert %></p>
-        <%= yield %>
-      </div>
+      <div class="medium-2 columns">&nbsp;</div>
+        <div class="medium-8 columns">
+          <p class="notice"><%= notice %></p>
+          <p class="notice"><%= alert %></p>
+          <%= yield %>
+        </div>
+      <div class="medium-2 columns">&nbsp;</div>
     </div>
     <%= javascript_include_tag "application" %>
   </body>
