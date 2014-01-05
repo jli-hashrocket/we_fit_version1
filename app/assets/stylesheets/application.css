@@ -54,19 +54,31 @@ h2.subtitle{
   text-align: center
 }
 
+span.members{
+  display:block;
+  font-size:28px;
+  font-weight:bolder;
+  margin-bottom:-20px;
+}
+
 p.home{
   font-size:18px;
 }
 
 a.signin, a.signup{
   display:block;
-  background-image: url('/assets/strip.png') repeat;
+  background: url('/assets/strip.png') repeat;
   color:#fff;
-  padding: 20px 15px 20px 20px;
+  padding: 20px 20px 20px 25px;
   font-size:30px;
   font-weight: bold;
-  width:150px;
+  width:170px;
   font-family: 'Fjalla One', sans-serif;
+  border:6px solid #fff;
+}
+
+a.signin:hover, a.signup:hover{
+  border-color: #008CBA;
 }
 
 a.signin{
@@ -78,6 +90,19 @@ a.signup{
 }
 
 .button_container{
-  width:350px;
+  width:360px;
   margin:auto;
+}
+
+ul.activities li{
+  display:inline;
+  padding-right:5px;
+}
+
+#search-container{
+  float:left;
+}
+
+#results{
+  float:right;
 }

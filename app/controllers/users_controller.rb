@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
 
   def index
+        @search = User.search(params[:q])
+
+        @members = @search.result(distinct: true)
+
   end
 
   def show
@@ -10,6 +14,8 @@ class UsersController < ApplicationController
   end
 
   def browse
+    @search = User.search(params[:q])
+    @members = @search.result(distinct: true)
     @users = User.all
   end
 
