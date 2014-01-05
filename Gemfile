@@ -15,6 +15,9 @@ gem 'devise'
 # User Simple Form
 gem 'simple_form'
 
+# Use Ransack
+gem 'ransack'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

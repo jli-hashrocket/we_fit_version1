@@ -7,11 +7,13 @@
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
     <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Inder' rel='stylesheet' type='text/css'>
-
-
+    <link href='http://fonts.googleapis.com/css?family=Inder' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "vendor/jquery" %>
+    <%= javascript_include_tag "vendor/fastclick" %>
+    <%= javascript_include_tag "foundation.min" %>
+
     <%= csrf_meta_tags %>
   </head>
 
