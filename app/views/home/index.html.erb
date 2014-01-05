@@ -1,3 +1,9 @@
-<h1>WeFit</h1>
+<h1 id="title">WeFit</h1>
+<h2 class="subtitle">Whether you run marathons or wrestle sharks, you don't have to do it alone.</h2>
 
-<p>With so many people who view exercise and physical activities as a social interaction as well as keeping your body healthy, this was created to promote that interaction and have fun being fit by helping you find friends or partners to enjoy the same activities that you do!</p>
+<p class="home">With so many people who view exercise and physical activities as a social interaction as well as keeping your body healthy, this was created to promote that interaction and have fun being fit by helping you find friends or partners to enjoy the same activities that you do!</p>
+
+<div class="button_container">
+<%=link_to 'Sign In!', user_session_path, class: "signin" %>
+<%= link_to 'Sign Up!', new_user_registration_path, class: "signup" %>
+</div>
