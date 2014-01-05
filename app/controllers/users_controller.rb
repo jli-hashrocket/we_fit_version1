@@ -10,7 +10,10 @@ class UsersController < ApplicationController
   end
 
   def browse
-    @users = User.all
+    @q = User.search(params[:q])
+    @members = @q.result(distinct: true)
+
+    # @users = User.all
   end
 
   private

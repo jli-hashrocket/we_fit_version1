@@ -1,19 +1,31 @@
 <h1>Browse Members</h1>
 
-<div id="accordion">
-  <% @users.each do |user| %>
-  <div>
-  <span class="members"><%= user.username %></span></br>
-  Email: <%=user.email %><br/>
-  Gender: <%= user.gender %><br/>
-  Location: <%= user.location %><br/>
-  Summary: <%= user.bio %><br/>
-  Activities:
-  <ul class="activities">
-    <% user.activities.each do |activity| %>
-      &bullet; <li><%= activity.name %></li>
+<div id="search-container">
+<%= search_form_for @q do |f| %>
+  <%= f.label :gender_cont %>
+  <%= f.text_field :gender_cont %>
+  <%= f.label :username_cont %>
+  <%= f.text_field :username_cont %>
+  <%= f.submit %>
+<% end %>
+</div>
+
+<div id="results">
+  <div id="accordion">
+    <% @members.each do |member| %>
+    <div>
+    <span class="members"><%= member.username %></span></br>
+    Email: <%=member.email %><br/>
+    Gender: <%= member.gender %><br/>
+    Location: <%= member.location %><br/>
+    Summary: <%= member.bio %><br/>
+    Activities:
+    <ul class="activities">
+      <% member.activities.each do |activity| %>
+        &bullet; <li><%= activity.name %></li>
+      <% end %>
+    </ul>
+    </div>
     <% end %>
-  </ul>
   </div>
-  <% end %>
 </div>

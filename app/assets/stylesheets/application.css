@@ -98,3 +98,11 @@ ul.activities li{
   display:inline;
   padding-right:5px;
 }
+
+#search-container{
+  float:left;
+}
+
+#results{
+  float:right;
+}

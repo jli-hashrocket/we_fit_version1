@@ -1,3 +1,23 @@
-<h1>Welcome></h1>
+<h1>Welcome</h1>
 
 <p>Have fun looking for fitness buddies!</p>
+
+<div id="results">
+  <div id="accordion">
+    <%= @members.each do |member| %>
+    <div>
+    <span class="members"><%= member.username %></span></br>
+    Email: <%=member.email %><br/>
+    Gender: <%= member.gender %><br/>
+    Location: <%= member.location %><br/>
+    Summary: <%= member.bio %><br/>
+    Activities:
+    <ul class="activities">
+      <% member.activities.each do |activity| %>
+        &bullet; <li><%= activity.name %></li>
+      <% end %>
+    </ul>
+    </div>
+    <% end %>
+  </div>
+</div>
