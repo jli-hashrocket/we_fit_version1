@@ -15,11 +15,18 @@ Acceptance Criteria
 
   scenario 'browses members' do
     user = FactoryGirl.create(:user)
+    user1 = FactoryGirl.create(:user, username: "PilatesLover")
+    user2 = FactoryGirl.create(:user, username: "Lift4Life")
+    user3 = FactoryGirl.create(:user, username: "BaseJumper")
+
     sign_in_fill(user)
     click_on "Sign in"
     click_on "Browse Members"
 
     page.html.should include("<h1>Browse Members</h1>")
+    expect(page).to have_content(user1.username)
+    expect(page).to have_content(user2.username)
+    expect(page).to have_content(user3.username)
   end
 
 end
