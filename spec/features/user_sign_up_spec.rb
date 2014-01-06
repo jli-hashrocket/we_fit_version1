@@ -18,6 +18,7 @@ Acceptance Criteria:
   let(:first_name) {first_name = "Jeff"}
 
   scenario 'with valid and required attributes' do
+    ActionMailer::Base.deliveries = []
     visit new_user_registration_path
 
     fill_in "First name", with: first_name
@@ -31,6 +32,13 @@ Acceptance Criteria:
 
     expect(page).to have_content("You have signed up successfully")
     expect(page).to have_content("Welcome #{first_name}")
+
+    #expect email details pertaining to the confirmation
+    expect(ActionMailer::Base.deliveries.size).to eql(1)
+    last_email = ActionMailer::Base.deliveries.last
+    expect(last_email).to have_subject('Member Confirmation')
+    expect(last_email).to deliver_to(new_email)
+
   end
 
   scenario 'required info is not filled out' do
