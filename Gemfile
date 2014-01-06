@@ -44,6 +44,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :staging, :production do
+  gem 'rails_12factor'
+end
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'pry-rails'
