@@ -29,6 +29,32 @@ Acceptance Criteria
     expect(page).to have_content(user3.username)
   end
 
+  scenario 'search with attributes checked and search fields filled' do
+    user = FactoryGirl.create(:user)
+    weightlifting = FactoryGirl.create(:activity)
+    jogging = FactoryGirl.create(:activity, name: "Jogging")
+    user_activity = FactoryGirl.create(:user_activity, user_id: user.id, activity_id: jogging.id)
+    user_activity2 = FactoryGirl.create(:user_activity, user_id: user.id, activity_id: weightlifting.id)
+
+    sign_in_fill(user)
+    click_on "Sign in"
+    click_on "Browse Members"
+
+    fill_in "q_username_cont", with: user.username
+    check("male")
+    fill_in "q_location_cont", with: user.location
+    check(weightlifting.name)
+    check(jogging.name)
+
+    click_on "Search"
+
+    expect(page).to have_content(user.username)
+    expect(page).to have_content(user.gender)
+    expect(page).to have_content(user.location)
+    expect(page).to have_content("Jogging")
+    expect(page).to have_content("Weightlifting")
+  end
+
 end
 
 def sign_in_fill(user)

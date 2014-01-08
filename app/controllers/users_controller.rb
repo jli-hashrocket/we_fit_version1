@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   def index
     @search = User.search(params[:q])
     @members = @search.result(distinct: true)
+    @users = User.all
+    @activities = Activity.all
   end
 
   def show
@@ -15,10 +17,11 @@ class UsersController < ApplicationController
     @search = User.search(params[:q])
     @members = @search.result(distinct: true)
     @users = User.all
+    @activities = Activity.all
   end
 
   private
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :username, :email, :bio, :photo, :location, :gender, :preferred_gender, :activity_ids => [])
+      params.require(:user).permit(:first_name, :last_name, :username, :email, :bio, :photo, :location, :gender, :preferred_gender, :activitiy_ids => [])
     end
 end

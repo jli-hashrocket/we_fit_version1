@@ -1,0 +1,20 @@
+<div id="search-container">
+<%= search_form_for @search do |f| %>
+  <%= f.label :username_cont %>
+  <%= f.text_field :username_cont %>
+  Gender<br/>
+  <%= check_box_tag( "q[gender_start]",'male',  false, id: 'male' )%> Male
+  <%= check_box_tag( "q[gender_start]",'female', false, id: 'female' )%> Female
+  <%= f.label :location_cont %>
+  <%= f.text_field :location_cont %>
+
+  <% @activities.each do |activity| %>
+    <%= f.label activity.name %>
+    <%= check_box_tag('q[user_activities_activity_id_eq_any][]',
+      activity.id,
+      activity_checkbox_checked_value_for(activity),
+      id: activity.name ) %><br/>
+  <% end %>
+  <%= f.submit %>
+<% end %>
+</div>
