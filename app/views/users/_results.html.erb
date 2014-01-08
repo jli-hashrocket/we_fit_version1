@@ -1,0 +1,19 @@
+<div id="results">
+  <div id="accordion">
+    <% @users.each do |user| %>
+    <div>
+    <span class="members"><%= user.username %></span></br>
+    Email: <%=user.email %><br/>
+    Gender: <%= user.gender %><br/>
+    Location: <%= user.location %><br/>
+    Summary: <%= user.bio %><br/>
+    Activities:
+    <ul class="activities">
+      <% user.activities.each do |activity| %>
+        &bullet; <li><%= activity.name %></li>
+      <% end %>
+    </ul>
+    </div>
+    <% end %>
+  </div>
+</div>
