@@ -1,15 +1,15 @@
 <div id="results">
   <div id="accordion">
-    <% @users.each do |user| %>
+    <% @members.each do |member| %>
     <div>
-    <span class="members"><%= user.username %></span></br>
-    Email: <%=user.email %><br/>
-    Gender: <%= user.gender %><br/>
-    Location: <%= user.location %><br/>
-    Summary: <%= user.bio %><br/>
+    <span class="members"><%= member.username %></span></br>
+    Email: <%=member.email %><br/>
+    Gender: <%= member.gender %><br/>
+    Location: <%= member.location %><br/>
+    Summary: <%= member.bio %><br/>
     Activities:
     <ul class="activities">
-      <% user.activities.each do |activity| %>
+      <% member.activities.each do |activity| %>
         &bullet; <li><%= activity.name %></li>
       <% end %>
     </ul>

@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   def index
     @search = User.search(params[:q])
     @members = @search.result(distinct: true)
+    @users = User.all
+    @activities = Activity.all
   end
 
   def show
