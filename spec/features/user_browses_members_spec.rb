@@ -29,6 +29,25 @@ Acceptance Criteria
     expect(page).to have_content(user3.username)
   end
 
+  scenario 'filters with physical activities checked' do
+    user = FactoryGirl.create(:user)
+    sign_in_fill(user)
+    click_on "Sign in"
+    click_on "Browse Members"
+
+    check("Jogging")
+    check("Weightlifting")
+    check("Aerobics")
+    check("Zumba")
+
+    click_on "Submit"
+
+    expect(page).to have_content("Jogging")
+    expect(page).to have_content("Weightlifting")
+    expect(page).to have_content("Aerobics")
+    expect(page).to have_content("Zumba")
+  end
+
 end
 
 def sign_in_fill(user)

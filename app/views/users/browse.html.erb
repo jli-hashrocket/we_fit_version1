@@ -2,10 +2,18 @@
 
 <div id="search-container">
 <%= search_form_for @search do |f| %>
-  <%= f.label :gender_cont %>
-  <%= f.text_field :gender_cont %>
   <%= f.label :username_cont %>
   <%= f.text_field :username_cont %>
+  Gender<br/>
+  <%= check_box_tag( "q[gender_start]",'male' )%> Male
+  <%= check_box_tag( "q[gender_start]",'female' )%> Female
+  <%= f.label :location_cont %>
+  <%= f.text_field :location_cont %>
+
+  <% @activities.each do |activity| %>
+    <%= f.label activity.name %>
+    <%= check_box_tag('search[user_activities_activity_id_eq_any][]', activity.id) %><br/>
+  <% end %>
   <%= f.submit %>
 <% end %>
 </div>
