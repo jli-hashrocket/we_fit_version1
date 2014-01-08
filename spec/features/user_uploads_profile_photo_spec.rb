@@ -26,7 +26,7 @@ feature 'User uploads profile picture', %q{
     click_on 'Create User'
 
     expect(page).to have_content("You have signed up successfully")
-    expect(page).to have_content("Welcome #{first_name}")
+    expect(page).to have_content("Welcome angrybear")
     expect(User.last.photo).to be_present
   end
 

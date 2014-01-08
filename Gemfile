@@ -18,8 +18,9 @@ gem 'simple_form'
 # Use Ransack
 gem 'ransack'
 
-# Use CarrierWave
+# Use CarrierWave and MiniMagick
 gem 'carrierwave'
+gem 'mini_magick'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

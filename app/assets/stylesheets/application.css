@@ -105,3 +105,25 @@ ul.activities li{
 #results{
   float:right;
 }
+
+img.profile_pic{
+  border: 5px solid #fff;
+  margin-bottom: 20px
+}
+
+#profile_table{
+  width:354px;
+}
+
+.member_pic{
+  float:left;
+}
+
+.member_info{
+  float:right;
+}
+
+.member_pic img{
+  width:100px;
+  height:100px;
+}
