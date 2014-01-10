@@ -1,0 +1,236 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require foundation_and_overrides
+
+ *= require_tree .
+ */
+
+body{
+  letter-spacing: 0.01em;
+  line-height: 1.4em !important;
+}
+
+section{
+  background-color: #7AD9E6 !important;
+}
+
+header{
+  background: image-url('outdoor.jpg');
+  height:700px;
+  background-position: 0 800px;
+  margin-top: 50px
+}
+.top-bar-section{
+  background: #fff !important;
+}
+
+#title_container{
+  width:60%;
+  margin-left:70px;
+}
+.row{
+  margin-top:50px;
+}
+nav{
+  position: fixed !important;
+  z-index: 5000 !important;
+  width: 100% !important;
+  margin-top:-50px;
+}
+
+div #content{
+  margin-top: 20px
+}
+
+h1,h2,h3,h4,h5,h6{
+  color: #fff !important;
+  font-family: 'Fjalla One', sans-serif !important;
+  margin-bottom:40px !important;
+}
+
+input[type="text"], input[type="password"],input[type="email"], textarea,#user_gender, #user_preferred_gender {
+  margin: -0.4rem 0 1rem 0 !important;
+  height: 1.9rem !important;
+  width: 35% !important;
+}
+#user_activity_ids{
+  width: 35% !important;
+}
+
+input#submit{
+  background-color: #6db3f2 !important
+}
+label{
+  color: #fff !important;
+}
+
+h1#title{
+  text-align: center;
+  font-size:100px;
+  padding-top:60px;
+  text-shadow: 1px 1px 1px gray;
+}
+h2.subtitle{
+  text-align: center;
+  text-shadow: 1px 1px 1px gray;
+}
+
+span.members{
+  display:block;
+  font-size:24px;
+}
+
+p.home{
+  font-size:18px;
+}
+
+a.signin, a.signup, a.signout{
+  display:block;
+  background: url('/assets/strip.png') repeat;
+  color:#fff;
+  padding: 20px 20px 20px 25px;
+  font-size:30px;
+  font-weight: bold;
+  width:50%;
+  font-family: 'Fjalla One', sans-serif;
+  border:6px solid #fff;
+  margin-right: -20px;
+  transition: color 1s, border-color 1s;
+}
+
+a.signin:hover, a.signup:hover, a.signout:hover{
+  border-color: #008CBA;
+}
+
+a.signin{
+  float:left;
+}
+
+a.signup{
+  float:right;
+}
+
+.button_container{
+  width:360px;
+  margin:auto;
+}
+ul.activities{
+  margin-top:-20px;
+}
+ul.activities li{
+  display:inline;
+  padding-right:5px;
+  font-size:16px;
+}
+
+/*** Search Box ***/
+#search_container{
+  float:left;
+  border:3px solid #fff;
+  padding: 10px;
+  width:35%;
+}
+
+#search_container input[type="text"]{
+  width:100% !important;
+}
+
+#search_container ul li{
+  display:inline;
+  margin-right:15px;
+}
+
+#search_container ul li label{
+  display:inline;
+
+}
+#search_container ul li input{
+  display:inline;
+}
+
+#search_container h3{
+  text-align:center;
+}
+#search_container h6{
+  margin-bottom: 0px !important
+}
+
+#search_container h4,h5,h6{
+  font-family:'Source Sans Pro', Helvetica, sans-serif !important;
+}
+/*** END ***/
+
+#results{
+  float:right;
+  width: 60%
+}
+
+img.profile_pic{
+  border: 5px solid #fff;
+  margin-bottom: 20px;
+  float:left;
+}
+
+#profile_table{
+  width:450px;
+  float:right;
+}
+
+.member_pic{
+  float:left;
+  margin-right: 15px;
+  display:block;
+-webkit-box-shadow: 1px 1px 3px 0px rgba(50, 50, 50, 0.85);
+-moz-box-shadow:    1px 1px 3px 0px rgba(50, 50, 50, 0.85);
+box-shadow:         1px 1px 3px 0px rgba(50, 50, 50, 0.85);
+}
+
+.member, .member_info{
+  overflow:hidden;
+  _overflow:visible;
+  zoom:1;
+}
+
+/*** Accordion ***/
+.accordion dd{
+  padding-bottom:10px !important;
+}
+.accordion dd > a{
+  background:#0079a1 !important;
+  color: #fff !important;
+  transition: background 1s;
+}
+.accordion dd > a:hover{
+  background: #0090BF !important;
+}
+
+.accordion .content.active{
+  color: #999 !important;
+}
+
+.member_header{
+  margin-top:-10px;
+  font-size:16px !important;
+  padding-bottom:20px;
+}
+
+.accordion .content.active p{
+    font-size:16px !important;
+
+}
+
+footer{
+  background: #fff;
+  text-align:center;
+  color:#ffb53d;
+  font-size:14px;
+}

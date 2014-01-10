@@ -6,12 +6,8 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
     <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Inder' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "vendor/jquery" %>
-    <%= javascript_include_tag "vendor/fastclick" %>
     <%= javascript_include_tag "foundation.min" %>
     <%= csrf_meta_tags %>
   </head>
@@ -42,20 +38,40 @@
                 <li><%= link_to 'Browse Members', browse_user_path(current_user) %></li>
               <% end %>
             </ul>
-
           </div>
         </div>
       </section>
     </nav>
-    <div class="row">
-      <div class="medium-2 columns">&nbsp;</div>
+    <header>
+      <div id="title_container">
+        <h1 id="title">WeFit</h1>
+        <h2 class="subtitle">Whether you run marathons or wrestle sharks, you don't have to do it alone.</h2>
+              <div class="button_container">
+        <% if !user_signed_in? %>
+          <%= link_to 'Sign In!', user_session_path, class: "signin" %>
+          <%= link_to 'Sign Up!', new_user_registration_path, class: "signup" %>
+        <% else %>
+          <%=link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "signout" %>
+        <% end %>
+      </div>
+    </header>
+    <section class="content">
+      <div class="row">
+        <div class="medium-2 columns">&nbsp;</div>
         <div class="medium-8 columns">
-          <p class="notice"><%= notice %></p>
-          <p class="notice"><%= alert %></p>
-          <%= yield %>
+          <div id="content">
+            <p class="notice"><%= notice %></p>
+            <p class="notice"><%= alert %></p>
+            <%= yield %>
+          </div>
         </div>
-      <div class="medium-2 columns">&nbsp;</div>
-    </div>
+        <div class="medium-2 columns">&nbsp;</div>
+      </div>
+    </section>
+    <footer>
+      &copy;2014 created by Jeff Li
+    </footer>
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>
