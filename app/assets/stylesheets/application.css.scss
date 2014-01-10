@@ -57,20 +57,8 @@ h1,h2,h3,h4,h5,h6{
   margin-bottom:40px !important;
 }
 
-input[type="text"], input[type="password"],input[type="email"], textarea,#user_gender, #user_preferred_gender {
-  margin: -0.4rem 0 1rem 0 !important;
-  height: 1.9rem !important;
-  width: 35% !important;
-}
 #user_activity_ids{
   width: 35% !important;
-}
-
-input#submit{
-  background-color: #6db3f2 !important
-}
-label{
-  color: #fff !important;
 }
 
 h1#title{
@@ -95,14 +83,14 @@ p.home{
 
 a.signin, a.signup, a.signout{
   display:block;
-  background: url('/assets/strip.png') repeat;
+  background: image-url('stripe.png');
   color:#fff;
-  padding: 20px 20px 20px 25px;
+  padding: 20px 20px 20px 40px;
   font-size:30px;
   font-weight: bold;
   width:50%;
   font-family: 'Fjalla One', sans-serif;
-  border:6px solid #fff;
+  border:2px solid #fff;
   margin-right: -20px;
   transition: color 1s, border-color 1s;
 }
@@ -131,7 +119,36 @@ ul.activities li{
   padding-right:5px;
   font-size:16px;
 }
+/*** Forms ***/
+input[type="text"], input[type="password"],input[type="email"], textarea,#user_gender, #user_preferred_gender {
+  margin: -0.4rem 0 1rem 0 !important;
+  height: 1.9rem !important;
+}
 
+input#submit{
+  background-color: #6db3f2 !important
+}
+
+label{
+  color: #fff !important;
+  margin-bottom:-10px !important;
+}
+
+#edit_form label{
+  margin-bottom: 10px !important
+}
+
+#form_column1{
+  float:left;
+}
+
+#form_column2{
+  float:right;
+}
+#cancel{
+  float:left;
+  margin-top:80px;
+}
 /*** Search Box ***/
 #search_container{
   float:left;
@@ -227,7 +244,7 @@ box-shadow:         1px 1px 3px 0px rgba(50, 50, 50, 0.85);
     font-size:16px !important;
 
 }
-
+/*** Footer ***/
 footer{
   background: #fff;
   text-align:center;
