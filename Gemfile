@@ -18,6 +18,9 @@ gem 'simple_form'
 # Use Ransack
 gem 'ransack'
 
+# Use Fog for Amazon S3 support
+gem 'fog', '~> 1.3.1'
+
 # Use CarrierWave and MiniMagick
 gem 'carrierwave'
 gem 'mini_magick'
@@ -60,6 +63,7 @@ group :test, :development do
   gem 'shoulda'
   gem 'capybara'
   gem 'email_spec'
+  gem 'dotenv-rails'
 end
 
 
