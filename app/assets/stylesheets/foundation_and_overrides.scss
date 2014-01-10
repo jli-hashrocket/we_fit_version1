@@ -35,8 +35,8 @@ $base-font-size: 18px;
 // $total-columns: 12;
 
 // We use these to control various global styles
-$body-bg: #FFB81F;
-$body-font-family:'Abel', sans-serif;
+//$body-bg: #FFB81F;
+$body-font-family:'Source Sans Pro', Helvetica, sans-serif;
 $body-font-color: #ffffff;
 // $body-font-weight: normal;
 // $body-font-style: normal;
@@ -108,7 +108,7 @@ $body-font-color: #ffffff;
 // $include-html-accordion-classes: $include-html-classes;
 
 // $accordion-navigation-padding: rem-calc(16);
-// $accordion-navigation-bg-color: #efefef  ;
+ //$accordion-navigation-bg-color: #10B0E0  ;
 // $accordion-navigation-hover-bg-color: darken($accordion-navigation-bg-color, 5%);
 // $accordion-navigation-active-bg-color: darken($accordion-navigation-bg-color, 3%);
 // $accordion-navigation-font-color: #222;
@@ -953,7 +953,7 @@ $topbar-title-font-size: 28px;
 // $topbar-dropdown-toggle-alpha: 0.4;
 
 // Set the link colors and styles for top-level nav
- $topbar-link-color:  #6db3f2;
+ $topbar-link-color:  #FFB53D;
 // $topbar-link-color-hover: #fff;
 // $topbar-link-color-active: #fff;
 // $topbar-link-weight: normal;

@@ -1,33 +1,42 @@
 <h2>Edit Your Profile</h2>
+<%= link_to "Back", :back %>
 
+<div id="edit_form">
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
+  <div id="form_column1">
+    <%= f.input :first_name, autofocus: true %>
+    <%= f.input :last_name %>
+    <%= f.input :username %>
+    <%= f.input :email %>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+    <i>(leave blank if you don't want to change it)</i>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+    <%= f.input :bio, size: "30x10" %>
 
-  <%= f.input :first_name, autofocus: true %>
-  <%= f.input :last_name %>
-  <%= f.input :username %>
-  <%= f.input :email %>
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-  <i>(leave blank if you don't want to change it)</i>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation %>
-  <%= f.input :bio, size: "30x10" %>
-  <%= f.input :photo %>
-  <%= f.input :location %>
-  <%= f.input :gender, collection: [:male, :female] %>
-  <%= f.input :preferred_gender, collection: ["Male","Female","Both"], label: "Looking For" %>
-  <%= f.association :activities, collection: Activity.all(order: 'name')  %>
+  </div>
+  <div id="form_column2">
+        <%= f.label :photo %>
+    <%= f.file_field :photo %>
+    <%= f.input :location %>
 
-  <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.input :current_password %>
+    <%= f.input :gender, collection: [:male, :female] %>
+    <%= f.input :preferred_gender, collection: ["Male","Female","Both"], label: "Looking For" %>
+    <%= f.association :activities, collection: Activity.all(order: 'name')  %>
 
-  <%= f.button :submit, label:  "Update Profile" %>
+    <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.input :current_password %>
+    <%= f.button :submit, label:  "Update Profile" %>
+  </div>
 <% end %>
+</div>
 
+<div id="cancel">
 <h3>Cancel my account</h3>
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
 
-<%= link_to "Back", :back %>
+</div>

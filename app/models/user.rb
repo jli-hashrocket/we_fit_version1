@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   has_many :activities,
     through: :user_activities
 
+  mount_uploader :photo, PhotoUploader
+
   def send_mail
     if save
       UserConfirmation.member_info(self).deliver

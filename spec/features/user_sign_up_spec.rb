@@ -31,7 +31,7 @@ Acceptance Criteria:
     click_on 'Create User'
 
     expect(page).to have_content("You have signed up successfully")
-    expect(page).to have_content("Welcome #{first_name}")
+    expect(page).to have_content("Welcome angrybear")
 
     #expect email details pertaining to the confirmation
     expect(ActionMailer::Base.deliveries.size).to eql(1)

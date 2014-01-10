@@ -10,7 +10,8 @@
   <%= f.input :password %>
   <%= f.input :password_confirmation %>
   <%= f.input :bio, size: "30x10" %>
-  <%= f.input :photo %>
+  <%= f.label :photo %>
+  <%= f.file_field :photo %>
   <%= f.input :location %>
   <%= f.input :gender, collection: [:male, :female] %>
   <%= f.input :preferred_gender, collection: ["Male","Female","Both"], label: "Looking For" %>
