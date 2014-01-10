@@ -63,6 +63,7 @@ group :test, :development do
   gem 'shoulda'
   gem 'capybara'
   gem 'email_spec'
+  gem 'dotenv-rails'
 end
 
 
