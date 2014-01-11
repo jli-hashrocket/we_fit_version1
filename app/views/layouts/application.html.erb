@@ -8,7 +8,6 @@
     <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "foundation.min" %>
     <%= csrf_meta_tags %>
   </head>
 
@@ -21,7 +20,7 @@
               <li class="name">
                 <h1><a href="<%= root_path %>">WeFit</a></h1>
               </li>
-             </ul>
+            </ul>
             <!-- Right Nav Section -->
             <ul class="right">
               <% if user_signed_in? %>
@@ -36,6 +35,7 @@
                 <li><%= link_to 'Profile', current_user %></li>
                 <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
                 <li><%= link_to 'Browse Members', browse_user_path(current_user) %></li>
+                <li><%= link_to 'Favorites', user_favorites_path(current_user) %></li>
               <% end %>
             </ul>
           </div>
@@ -46,13 +46,14 @@
       <div id="title_container">
         <h1 id="title">WeFit</h1>
         <h2 class="subtitle">Whether you run marathons or wrestle sharks, you don't have to do it alone.</h2>
-              <div class="button_container">
-        <% if !user_signed_in? %>
-          <%= link_to 'Sign In!', user_session_path, class: "signin" %>
-          <%= link_to 'Join Us!', new_user_registration_path, class: "signup" %>
-        <% else %>
-          <%=link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "signout" %>
-        <% end %>
+        <div class="button_container">
+          <% if !user_signed_in? %>
+            <%= link_to 'Sign In!', user_session_path, class: "signin" %>
+            <%= link_to 'Join Us!', new_user_registration_path, class: "signup" %>
+          <% else %>
+            <%=link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "signout" %>
+          <% end %>
+        </div>
       </div>
     </header>
     <section class="content">

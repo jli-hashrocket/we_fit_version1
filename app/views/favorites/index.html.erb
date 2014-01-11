@@ -1,28 +1,30 @@
-<div id="results">
+<h1>Your Favorite Profiles</h1>
+
+<div id="favorites">
   <dl class="accordion" data-accordion>
     <% count = 0 %>
-    <% @members.each do |member| %>
+    <% @favorites.each do |favorite| %>
     <% count += 1 %>
       <dd>
-        <a id="<%= dom_id(member) %>" href="#panel<%= count %>">
-            <% if member.photo %>
+        <a href="#panel<%= count %>">
+            <% if favorite.photo %>
               <%= image_tag member.photo.thumb.url, class: 'member_pic' %>
             <% end %>
             <div class="member_header">
               <span class="members">
-                <%= member.username %>
+                <%= favorite.username %>
               </span>
-              Location: <%= member.location %><br/>
-              Gender: <%= member.gender %><br/>
+              Location: <%= favorite.location %><br/>
+              Gender: <%= favorite.gender %><br/>
             </div>
         </a>
         <div id="panel<%= count %>" class="content inactive">
           <p>
-          Email: <%=member.email %><br/>
-          Summary: <%= member.bio %><br/>
+          Email: <%=favorite.email %><br/>
+          Summary: <%= favorite.bio %><br/>
           Activities:
           <ul class="activities">
-            <% member.activities.each do |activity| %>
+            <% favorite.activities.each do |activity| %>
               &bullet; <li><%= activity.name %></li>
             <% end %></p>
           </ul>

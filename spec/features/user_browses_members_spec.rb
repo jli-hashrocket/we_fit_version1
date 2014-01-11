@@ -29,6 +29,19 @@ Acceptance Criteria
     expect(page).to have_content(user3.username)
   end
 
+  scenario "user sees extra member information", js: true do
+    user = FactoryGirl.create(:user)
+    other_user = FactoryGirl.create(:user, email: "jeffsmeels@aol.com")
+
+    sign_in_fill(user)
+    click_on "Sign in"
+    click_on "Browse Members"
+
+    page.find("#user_#{other_user.id}").trigger("click")
+
+    expect(page).to have_content "jeffsmeels@aol.com"
+  end
+
   scenario 'search with attributes checked and search fields filled' do
     user = FactoryGirl.create(:user)
     weightlifting = FactoryGirl.create(:activity)
