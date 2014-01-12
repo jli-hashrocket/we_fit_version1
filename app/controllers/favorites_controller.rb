@@ -2,11 +2,10 @@ class FavoritesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @favorites = Favorite.all
+    @favorites = Favorite.get_favorites
   end
 
   def create
-    @user = User.find(params[:user_id])
     @favorite = current_user.favorites.build(favorited_id: params[:favorited_id])
 
     respond_to do |format|
@@ -21,6 +20,12 @@ class FavoritesController < ApplicationController
 
       end
     end
+  end
+
+  def destroy
+    @favorites = Favorite.all
+    current_user.favorites.destroy(params[:id])
+    render action: 'index', notice: 'A favorite has been removed.'
   end
 
 end
