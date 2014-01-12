@@ -25,6 +25,7 @@ feature 'User favorites a profile', %q{
     click_on 'Browse Members'
 
     page.find("#user_#{user1.id}").trigger("click")
+    page.find(".add").trigger("click")
   end
 
 #   scenario 'goes to Favorites' do

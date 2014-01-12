@@ -1,7 +1,7 @@
 class Favorite < ActiveRecord::Base
-  validates_presence_of :favorited_by_id
+  validates_presence_of :user_id
   validates_presence_of :favorited_id
 
-  belongs_to :favorited_by, class_name: "User",
+  belongs_to :user,
     inverse_of: :favorites
 end

@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   has_many :activities,
     through: :user_activities,
     dependent: :destroy
-  has_many :favorited, class_name: "Favorite",
+  has_many :favorites,
     dependent: :destroy,
     inverse_of: :user
 

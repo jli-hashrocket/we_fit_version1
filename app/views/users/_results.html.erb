@@ -26,7 +26,7 @@
               &bullet; <li><%= activity.name %></li>
             <% end %></p>
           </ul>
-          <%= button_to 'Add to Favorites', user_favorites_path(current_user), method: :post %>
+          <%= button_to 'Add to Favorites', user_favorites_path(current_user, params: {favorited_id: member.id}), remote: true, class: "add" %>
 
         </div>
       </dd>

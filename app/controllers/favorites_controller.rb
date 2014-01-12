@@ -7,14 +7,18 @@ class FavoritesController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @favorite = current_user.favorited.build
+    @favorite = current_user.favorites.build(favorited_id: params[:favorited_id])
+
     respond_to do |format|
       if @favorite.save
-        flash[:notice] = "Added to Favorites"
+        format.html { redirect_to 'index', notice: 'Added to Favorites' }
         format.js
+        format.json { render action: 'index', status: :created, location: @favorite}
       else
-        flash[:alert] = "Cannot add to Favorites"
+        format.html { render action: 'index', notice: "Cannot add to Favorites" }
         format.js
+        format.json { render json: @favorite.errors, status: :unprocessable_entity}
+
       end
     end
   end
