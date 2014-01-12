@@ -170,8 +170,8 @@ label{
 #search_container h4,h5,h6{
   font-family:'Source Sans Pro', Helvetica, sans-serif !important;
 }
-/*** END ***/
 
+/*** Members ***/
 #results{
   float:right;
   width: 60%
@@ -203,6 +203,23 @@ box-shadow:         1px 1px 3px 0px rgba(50, 50, 50, 0.85);
   zoom:1;
 }
 
+.add{
+  display:block;
+  float:right;
+  font-size:12px;
+  background-color:#fff;
+  color:#000;
+  padding:3px;
+  margin-left: 20px
+}
+
+.member_header{
+  margin-top:-10px;
+  font-size:16px !important;
+  padding-bottom:20px;
+  width:375px
+}
+
 /*** Accordion ***/
 .accordion dd{
   padding-bottom:10px !important;
@@ -220,11 +237,6 @@ box-shadow:         1px 1px 3px 0px rgba(50, 50, 50, 0.85);
   color: #999 !important;
 }
 
-.member_header{
-  margin-top:-10px;
-  font-size:16px !important;
-  padding-bottom:20px;
-}
 
 .accordion .content.active p{
     font-size:16px !important;

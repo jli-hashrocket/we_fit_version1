@@ -22,11 +22,9 @@ feature 'User favorites a profile', %q{
       click_on 'Sign in'
     end
 
-    sleep 10
     click_on 'Browse Members'
 
     page.find("#user_#{user1.id}").trigger("click")
-    expect(page).to
   end
 
 #   scenario 'goes to Favorites' do

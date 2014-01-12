@@ -10,9 +10,14 @@ class User < ActiveRecord::Base
   validates_presence_of :gender
 
   has_many :user_activities,
+    dependent: :destroy,
     inverse_of: :user
   has_many :activities,
-    through: :user_activities
+    through: :user_activities,
+    dependent: :destroy
+  has_many :favorited, class_name: "Favorite",
+    dependent: :destroy,
+    inverse_of: :user
 
   mount_uploader :photo, PhotoUploader
 

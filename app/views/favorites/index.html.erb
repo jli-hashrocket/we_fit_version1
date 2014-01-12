@@ -1,35 +1,4 @@
 <h1>Your Favorite Profiles</h1>
 
 <div id="favorites">
-  <dl class="accordion" data-accordion>
-    <% count = 0 %>
-    <% @favorites.each do |favorite| %>
-    <% count += 1 %>
-      <dd>
-        <a href="#panel<%= count %>">
-            <% if favorite.photo %>
-              <%= image_tag member.photo.thumb.url, class: 'member_pic' %>
-            <% end %>
-            <div class="member_header">
-              <span class="members">
-                <%= favorite.username %>
-              </span>
-              Location: <%= favorite.location %><br/>
-              Gender: <%= favorite.gender %><br/>
-            </div>
-        </a>
-        <div id="panel<%= count %>" class="content inactive">
-          <p>
-          Email: <%=favorite.email %><br/>
-          Summary: <%= favorite.bio %><br/>
-          Activities:
-          <ul class="activities">
-            <% favorite.activities.each do |activity| %>
-              &bullet; <li><%= activity.name %></li>
-            <% end %></p>
-          </ul>
-        </div>
-      </dd>
-    <% end %>
-  </dl>
 </div>

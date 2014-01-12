@@ -26,6 +26,8 @@
               &bullet; <li><%= activity.name %></li>
             <% end %></p>
           </ul>
+          <%= button_to 'Add to Favorites', user_favorites_path(current_user), method: :post %>
+
         </div>
       </dd>
     <% end %>
