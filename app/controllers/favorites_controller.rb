@@ -2,7 +2,8 @@ class FavoritesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @favorites = Favorite.get_favorites
+     @favorites = current_user.favorite_users
+    # @favorites = Favorite.get_favorites(current_user.id)
   end
 
   def create

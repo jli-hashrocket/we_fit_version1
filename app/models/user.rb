@@ -12,12 +12,19 @@ class User < ActiveRecord::Base
   has_many :user_activities,
     dependent: :destroy,
     inverse_of: :user
+
   has_many :activities,
     through: :user_activities,
     dependent: :destroy
+
   has_many :favorites,
     dependent: :destroy,
     inverse_of: :user
+
+  has_many :favorite_users,
+    through: :favorites,
+    source: :favorited
+
 
   mount_uploader :photo, PhotoUploader
 

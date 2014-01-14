@@ -5,8 +5,7 @@ class Favorite < ActiveRecord::Base
   belongs_to :user,
     inverse_of: :favorites
 
-  def self.get_favorites
-    # SELECT u.first_name, u.last_name FROM users as u INNER JOIN  favorites as f ON u.id = f.favorited_id;
-    User.joins('INNER JOIN favorites ON users.id = favorites.favorited_id')
-  end
+  belongs_to :favorited,
+    class_name: "User"
+
 end

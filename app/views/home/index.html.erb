@@ -1,3 +1,19 @@
+<%= content_for :header do %>
+  <header>
+    <div id="title_container">
+      <h1 id="title">WeFit</h1>
+      <h2 class="subtitle">Now you can find someone to go street luging with...or a brisk jog. That works too.</h2>
+      <div class="button_container">
+        <% if !user_signed_in? %>
+          <%= link_to 'Sign In!', user_session_path, class: "signin" %>
+          <%= link_to 'Join Us!', new_user_registration_path, class: "signup" %>
+        <% else %>
+          <%=link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "signout" %>
+        <% end %>
+      </div>
+    </div>
+  </header>
+<% end %>
 
 <p class="home">With so many people who view exercise and physical activities as a social interaction as well as keeping your body healthy, this was created to promote that interaction and have fun being fit by helping you find friends or partners to enjoy the same activities that you do!</p>
 
