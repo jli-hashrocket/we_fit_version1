@@ -9,10 +9,13 @@ feature 'User favorites a profile', %q{
   So that I can come back to the profile later
 } do
   # Acceptance Criteria:
-  # *I must click on the favorite button for the profile I want to keep
+  # * I must click on the favorite button for the profile I want to keep
+  # * I must go to the Favorites page to view my favorites
+
   scenario 'clicks on profile to favorite', js: true do
     user = FactoryGirl.create(:user)
     user1 = FactoryGirl.create(:user, username: "PilatesLover")
+    favorite = FactoryGirl.create(:favorite)
 
     visit new_user_session_path
 
@@ -26,6 +29,9 @@ feature 'User favorites a profile', %q{
 
     page.find("#user_#{user1.id}").trigger("click")
     page.find(".add").trigger("click")
+
+    click_on 'Favorites'
+
   end
 
 #   scenario 'goes to Favorites' do

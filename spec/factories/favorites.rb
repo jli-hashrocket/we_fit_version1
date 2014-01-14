@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :favorite do
-    favorited_by_id 1
+    user_id 1
     favorited_id 1
   end
 end
