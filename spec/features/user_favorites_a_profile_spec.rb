@@ -30,19 +30,18 @@ feature 'User favorites a profile', %q{
     page.find("#user_#{user1.id}").trigger("click")
     page.find(".add").trigger("click")
 
-    click_on 'Favorites'
-
+    expect(page).to have_content("Added to Favorites")
   end
 
-#   scenario 'goes to Favorites' do
-#     user = FactoryGirl.create(:user)
-#     user1 = FactoryGirl.create(:user, username: "PilatesLover")
+  scenario 'goes to Favorites' do
+    user = FactoryGirl.create(:user)
+    user1 = FactoryGirl.create(:user, username: "PilatesLover")
 
-#     sign_in_fill(user)
-#     click_on 'Sign in'
-#     click_on 'Favorites'
+    sign_in_fill(user)
+    click_on 'Sign in'
+    click_on 'Favorites'
 
-#     expect(page).to have_content("Your Favorite Profiles")
-#   end
+    expect(page).to have_content("Your Favorite Profiles")
+  end
 
  end

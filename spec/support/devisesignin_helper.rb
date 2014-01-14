@@ -1,4 +1,4 @@
-module Signin
+module DeviseSignIn
   def sign_in_fill(user)
       visit root_path
       click_on 'Sign In'

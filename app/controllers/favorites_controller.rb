@@ -12,11 +12,11 @@ class FavoritesController < ApplicationController
     respond_to do |format|
       if @favorite.save
         format.html { redirect_to 'index', notice: 'Added to Favorites' }
-        format.js { flash.now[:notice] = 'Added to Favorites'}
+        format.js { flash.now[:notice] = 'Added to Favorites!'}
         format.json { render action: 'index', status: :created, location: @favorite}
       else
         format.html { render action: 'index', notice: "Cannot add to Favorites" }
-        format.js
+        format.js { flash.now[:alert] = 'Could not be added to Favorites!' }
         format.json { render json: @favorite.errors, status: :unprocessable_entity}
 
       end
