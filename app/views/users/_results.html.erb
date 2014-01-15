@@ -4,34 +4,36 @@
     <% count = 0 %>
     <% @members.each do |member| %>
     <% count += 1 %>
-      <dd>
-        <a id="<%= dom_id(member) %>" href="#panel<%= count %>">
-            <% if member.photo %>
-              <%= image_tag member.photo.thumb.url, class: 'member_pic' %>
-            <% end %>
-            <div class="member_header">
-              <span class="members">
-                <%= member.username %>
-              </span>
-              Location: <%= member.location %><br/>
-              Gender: <%= member.gender %><br/>
+      <dt>
+        <dd>
+          <a id="<%= dom_id(member) %>" href="#panel<%= count %>">
+              <% if member.photo %>
+                <%= image_tag member.photo.thumb.url, class: 'member_pic' %>
+              <% end %>
+              <div class="member_header">
+                <span class="members">
+                  <%= member.username %>
+                </span>
+                Location: <%= member.location %><br/>
+                Gender: <%= member.gender %><br/>
+              </div>
+          </a>
+          <%= button_to 'Add to Favorites', user_favorites_path(current_user, params: {favorited_id: member.id}), remote: true, class: "add" %>
+
+          <div id="panel<%= count %>" class="content inactive">
+            <div class="content_container">
+              Email: <%=member.email %><br/>
+              Summary: <%= member.bio %><br/>
+              Activities:
+              <ul class="activities">
+                <% member.activities.each do |activity| %>
+                  <li><%= activity.name %></li>
+                <% end %>
+              </ul>
             </div>
-        </a>
-        <%= button_to 'Add to Favorites', user_favorites_path(current_user, params: {favorited_id: member.id}), remote: true, class: "add" %>
-
-        <div id="panel<%= count %>" class="content inactive">
-          <p>
-          Email: <%=member.email %><br/>
-          Summary: <%= member.bio %><br/>
-          Activities:
-          <ul class="activities">
-            <% member.activities.each do |activity| %>
-              &bullet; <li><%= activity.name %></li>
-            <% end %></p>
-          </ul>
-
-        </div>
-      </dd>
+          </div>
+        </dd>
+      </dt>
     <% end %>
   </dl>
   <% end %>

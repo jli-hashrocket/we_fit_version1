@@ -27,13 +27,6 @@ box-shadow:         1px 1px 5px 0px rgba(50, 50, 50, 0.50);
   margin: auto;
 }
 
-// nav{
-//   position: fixed !important;
-//   z-index: 5000 !important;
-//   width: 100% !important;
-  // margin-top:-50px;
-// }
-
 div #content{
   margin-top: 20px
 }
@@ -105,13 +98,12 @@ a.signout{
   width:360px;
   margin:auto;
 }
-ul.activities{
-  margin-top:-20px;
-}
+
 ul.activities li{
   display:inline;
   padding-right:5px;
   font-size:16px;
+  list-style-type: disc
 }
 
 /*** Notices ***/
@@ -229,21 +221,6 @@ box-shadow:         1px 1px 3px 0px rgba(50, 50, 50, 0.85);
   background-color: #72F752
 }
 
-.remove_favorite{
-  display: block;
-  float: right;
-  font-size: 14px;
-  background-color: #ED6242;
-  color: #fff;
-  padding: 8px;
-  margin: -132px 2%;
-  border: none;
-}
-
-.remove_favorite:hover{
-  background-color:#D4573B;
-  color:#fff
-}
 
 .member_header{
   margin-top:-10px;
@@ -253,11 +230,9 @@ box-shadow:         1px 1px 3px 0px rgba(50, 50, 50, 0.85);
 }
 
 /*** Accordion ***/
-.accordion dd{
-  padding-bottom:10px !important;
-}
+
 .accordion dd > a{
-  background:#0079a1 !important;
+  background:#0079a1;
   color: #fff !important;
   transition: background 1s;
 }
@@ -269,11 +244,37 @@ box-shadow:         1px 1px 3px 0px rgba(50, 50, 50, 0.85);
   color: #555 !important;
 }
 
-
 .accordion .content.active p{
     font-size:16px !important;
 
 }
+
+.accordion .content{
+  padding:0
+}
+
+.accordion .content.active, .accordion .content.inactive{
+  padding:5px
+}
+
+.accordion dd > a.remove_favorite{
+  display: block;
+  float: right;
+  font-size: 14px;
+  background-color: #ED6242 !important;
+  padding: 8px;
+  margin: -132px 2%;
+  border: none;
+}
+
+.accordion dd > a.remove_favorite{
+  background-color:#D4573B !important;
+}
+
+.content_container{
+  padding:15px
+}
+
 /*** Footer ***/
 footer{
   background: #fff;
@@ -281,4 +282,17 @@ footer{
   color:#ffb53d;
   font-size:14px;
   margin:20px
+}
+
+
+.accordion .content {
+  display: block;
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+
+  &.active {
+    max-height: 1000px;
+  }
 }
