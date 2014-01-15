@@ -1,42 +1,81 @@
 <h2>Edit Your Profile</h2>
-<%= link_to "Back", :back %>
+<%= link_to "Back", :back %><br/><br/>
 
 <div id="edit_form">
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
-  <div class="form_column1">
-    <%= f.input :first_name, autofocus: true %>
-    <%= f.input :last_name %>
-    <%= f.input :username %>
-    <%= f.input :email %>
+  <div class="row">
+    <div class="large-6 columns">
+      <%= f.input :first_name, autofocus: true %>
+    </div>
+    <div class="large-6 columns">
+      <%= f.input :last_name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-6 columns">
+      <%= f.input :username %>
+    </div>
+    <div class="large-6 columns">
+      <%= f.input :email %>
+    </div>
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
     <i>(leave blank if you don't want to change it)</i>
-    <%= f.input :password %>
-    <%= f.input :password_confirmation %>
-    <%= f.input :bio, size: "30x10" %>
-
   </div>
-  <div class="form_column2">
-        <%= f.label :photo %>
-    <%= f.file_field :photo %>
-    <%= f.input :location %>
-
-    <%= f.input :gender, collection: [:male, :female] %>
-    <%= f.input :preferred_gender, collection: ["Male","Female","Both"], label: "Looking For" %>
-    <%= f.association :activities, collection: Activity.all(order: 'name')  %>
-
-    <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.input :current_password %>
-    <%= f.button :submit, label:  "Update Profile" %>
+  <div class="row">
+    <div class="large-6 columns">
+      <%= f.input :password %>
+    </div>
+    <div class="large-6 columns">
+      <%= f.input :password_confirmation %>
+    </div>
   </div>
+  <div class="row">
+    <div class="large-6 columns">
+      <%= f.input :bio, :as => :text, size: "50x80" %>
+    </div>
+    <div class="large-6 columns">
+      <%= f.input :location %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-6 columns">
+      <%= f.input :gender, collection: [:male, :female] %>
+    </div>
+    <div class="large-6 columns">
+      <%= f.input :preferred_gender, collection: ["Male","Female","Both"], label: "Looking For" %>
+    </div>
+  </div>
+  <div class="row">
+     <div class="large-6 columns">
+        <%= f.association :activities, collection: Activity.all(order: 'name')  %>
+     </div>
+     <div class="large-6 columns">
+      <%= f.label :photo %>
+      <%= f.file_field :photo %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-6 columns">
+      <i>(we need your current password to confirm your changes)</i><br />
+      <%= f.input :current_password %>
+    </div>
+  </div>
+
+  <div class="row">
+     <div class="large-12 columns">
+      <%= f.button :submit, label:  "Update Profile" %>
+    </div>
+  </div>
+
 <% end %>
 </div>
 
 <div class="cancel">
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, class: "cancel_account" %></p>
 
 </div>

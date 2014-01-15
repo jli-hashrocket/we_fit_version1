@@ -20,7 +20,7 @@ header{
   background-image: image-url('road.jpg');
   background-position: center bottom;
   background-repeat: no-repeat;
-  padding: 50px 0 115px;
+  padding: 50px 0 175px;
   margin-top: -5px;
 }
 .top-bar-section{
@@ -67,6 +67,17 @@ p.home{
   font-size:20px;
 }
 
+ul.activities li{
+  display:inline;
+  padding-right:5px;
+  font-size:16px;
+  list-style-type: disc
+}
+
+.cancel{
+  margin-top: 20px;
+}
+/*** Buttons ***/
 a.signin, a.signup, a.signout{
   display:block;
   background: image-url('green_stripe.png');
@@ -102,11 +113,22 @@ a.signout{
   margin:auto;
 }
 
-ul.activities li{
-  display:inline;
-  padding-right:5px;
-  font-size:16px;
-  list-style-type: disc
+.link_sign_up, .link_forgot_pw, .link_forgot_pw, .link_sign_in{
+  font-size:20px;
+}
+
+.cancel_account{
+  background-color: #ED6242;
+  border: 0;
+  color: #fff;
+  font-size: 20px;
+  padding: 26px 31px;
+  transition: background-color 1s;
+}
+
+.cancel_account:hover{
+  background-color:#D4573B;
+  cursor: pointer;
 }
 
 /*** Notices ***/
@@ -124,19 +146,22 @@ ul.activities li{
 
  #new_user input[type="text"],  #new_user input[type="password"], #new_user input[type="email"], form #new_user #user_preferred_gender {
   margin: -0.4rem 0 1rem 0 !important;
-  height: 1.9rem !important;
+  height: 1.9rem;
   width:50%
 }
 
 #sign_up_form input[type="text"],  #sign_up_form input[type="password"], #sign_up_form input[type="email"],
-#sign_up_form input textarea, #sign_up_form input #user_gender, #sign_up_form input #user_preferred_gender {
+ #sign_up_form input #user_gender, #sign_up_form input #user_preferred_gender {
   width:100%
 }
 
 
-input[type="text"], input[type="password"],input[type="email"], textarea,#user_gender, #user_preferred_gender {
+input[type="text"], input[type="password"],input[type="email"],#user_gender, #user_preferred_gender{
   margin: -0.4rem 0 1rem 0;
   height: 1.9rem;
+  font-size:18px;
+  font-family: 'Source Sans Pro', Helvetica, sans-serif;
+  padding:5px
 }
 
 input#submit{
@@ -165,6 +190,10 @@ cancel{
 .submit_container{
   width:100%;
   clear:both
+}
+
+#sign_up_form{
+  margin-bottom: 40px
 }
 
 /*** Search Box ***/
@@ -215,9 +244,20 @@ img.profile_pic{
   float:left;
 }
 
-#profile_table{
-  width:450px;
+#profile_container{
+  width:54%;
   float:right;
+}
+
+#profile_table{
+  border: 0;
+  padding: 0;
+}
+#profile_table tr td{
+  vertical-align: top
+}
+.profile_header{
+  margin-bottom: 10px !important
 }
 
 .member_pic{
