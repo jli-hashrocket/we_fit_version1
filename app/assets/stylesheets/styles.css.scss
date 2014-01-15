@@ -1,14 +1,21 @@
-body{
-  letter-spacing: 0.01em;
-  line-height: 1.4em !important;
+* {
+  margin: 0;
 }
 
-
-.content{
-  border-top: 1px solid #fff !important;
-    background-color: #ffb53d !important;
+html, body {
+  height: 100%;
 }
 
+section.content{
+  border-top: 1px solid #fff;
+  background-color: #ffb53d;
+  min-height: 100%;
+}
+
+section.content:after {
+  content: "";
+  display: block;
+}
 header{
   background-image: image-url('road.jpg');
   background-position: center bottom;
@@ -35,10 +42,6 @@ h1,h2,h3,h4,h5,h6{
   color: #fff !important;
   font-family: 'Fjalla One', sans-serif !important;
   margin-bottom:40px !important;
-}
-
-#user_activity_ids{
-  width: 35% !important;
 }
 
 h1#title{
@@ -112,10 +115,28 @@ ul.activities li{
   padding-left: 10px;
 }
 
+.alert{
+  background: #D4573B;
+  padding-left: 10px;
+}
+
 /*** Forms ***/
-input[type="text"], input[type="password"],input[type="email"], textarea,#user_gender, #user_preferred_gender {
+
+ #new_user input[type="text"],  #new_user input[type="password"], #new_user input[type="email"], form #new_user #user_preferred_gender {
   margin: -0.4rem 0 1rem 0 !important;
   height: 1.9rem !important;
+  width:50%
+}
+
+#sign_up_form input[type="text"],  #sign_up_form input[type="password"], #sign_up_form input[type="email"],
+#sign_up_form input textarea, #sign_up_form input #user_gender, #sign_up_form input #user_preferred_gender {
+  width:100%
+}
+
+
+input[type="text"], input[type="password"],input[type="email"], textarea,#user_gender, #user_preferred_gender {
+  margin: -0.4rem 0 1rem 0;
+  height: 1.9rem;
 }
 
 input#submit{
@@ -126,16 +147,24 @@ label{
   color: #fff !important;
 }
 
-#form_column1{
+.form_column1{
   float:left;
+  width:48%
 }
 
-#form_column2{
+.form_column2{
   float:right;
+  width:48%
 }
-#cancel{
+
+cancel{
   float:left;
   margin-top:80px;
+}
+
+.submit_container{
+  width:100%;
+  clear:both
 }
 
 /*** Search Box ***/
@@ -246,11 +275,19 @@ box-shadow:         1px 1px 3px 0px rgba(50, 50, 50, 0.85);
 
 .accordion .content.active p{
     font-size:16px !important;
-
 }
 
-.accordion .content{
-  padding:0
+.accordion .content {
+  padding:0;
+  display: block;
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+
+  &.active {
+    max-height: 1000px;
+  }
 }
 
 .accordion .content.active, .accordion .content.inactive{
@@ -263,11 +300,11 @@ box-shadow:         1px 1px 3px 0px rgba(50, 50, 50, 0.85);
   font-size: 14px;
   background-color: #ED6242 !important;
   padding: 8px;
-  margin: -132px 2%;
+  margin: -123px 2%;
   border: none;
 }
 
-.accordion dd > a.remove_favorite{
+.accordion dd > a.remove_favorite:hover{
   background-color:#D4573B !important;
 }
 
@@ -281,18 +318,9 @@ footer{
   text-align:center;
   color:#ffb53d;
   font-size:14px;
-  margin:20px
+  padding-top:20px;
+  height:50px;
 }
 
 
-.accordion .content {
-  display: block;
-  overflow: hidden;
-  max-height: 0;
-  -webkit-transition: all 0.25s ease;
-  transition: all 0.25s ease;
 
-  &.active {
-    max-height: 1000px;
-  }
-}

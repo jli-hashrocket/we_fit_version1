@@ -1,23 +1,31 @@
 <h2>Sign up</h2>
 
-<%= simple_form_for( resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<div id="sign_up_form">
+  <%= simple_form_for( resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
-  <%= f.input :first_name, autofocus: true %>
-  <%= f.input :last_name %>
-  <%= f.input :username %>
-  <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation %>
-  <%= f.input :bio, size: "30x10" %>
-  <%= f.label :photo %>
-  <%= f.file_field :photo %>
-  <%= f.input :location %>
-  <%= f.input :gender, collection: [:male, :female] %>
-  <%= f.input :preferred_gender, collection: ["Male","Female","Both"], label: "Looking For" %>
+    <div class="form_column1">
+      <%= f.input :first_name, autofocus: true %>
+      <%= f.input :last_name %>
+      <%= f.input :username %>
+      <%= f.input :email %>
+      <%= f.input :password %>
+      <%= f.input :password_confirmation %>
+      <%= f.input :bio, size: "30x10" %>
+    </div>
+    <div class="form_column2">
+      <%= f.label :photo %>
+      <%= f.file_field :photo %>
+      <%= f.input :location %>
+      <%= f.input :gender, collection: [:male, :female] %>
+      <%= f.input :preferred_gender, collection: ["Male","Female","Both"], label: "Looking For" %>
 
-  <%= f.association :activities, collection: Activity.all(order: 'name')  %>
-  <%= f.button :submit, label:  "Sign up" %>
-<% end %>
+      <%= f.association :activities, collection: Activity.all(order: 'name')  %>
+    </div>
+    <div class="submit_container">
+      <%= f.button :submit, label:  "Sign up", class: "button" %>
+    </div>
+  <% end %>
+</div>
 
 <%= render "devise/shared/links" %>
