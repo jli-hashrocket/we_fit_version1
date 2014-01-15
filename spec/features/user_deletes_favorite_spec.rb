@@ -20,12 +20,16 @@ feature 'User deletes a favorite', %q{
     end
 
     click_on 'Browse Members'
-    page.find("#user_#{profile.id}").trigger('click')
-    page.find('.add').trigger('click')
+
+    within "#member_user_#{profile.id}" do
+      page.find("#user_#{profile.id}").trigger('click')
+      page.find('.add').trigger('click')
+    end
+
     expect(page).to have_content('Added to Favorites')
 
     click_on 'Favorites'
-    page.find('.remove_profile').trigger('click')
+    page.find('.remove_favorite').trigger('click')
     expect(page).to have_content('Removed from Favorites')
     expect(page).to_not have_content(profile.username)
   end
