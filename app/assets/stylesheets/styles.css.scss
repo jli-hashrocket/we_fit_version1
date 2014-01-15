@@ -53,11 +53,13 @@ h1#title{
   font-size:100px;
   padding-top:60px;
   text-shadow: 1px 1px 1px black;
-  margin-bottom: 0 !important
+  margin-bottom: 0 !important;
+  opacity: 0
 }
 h2.subtitle{
   text-align: center;
   text-shadow: 2px 2px 2px black;
+  opacity: 0
 }
 
 span.members{
@@ -66,7 +68,7 @@ span.members{
 }
 
 p.home{
-  font-size:18px;
+  font-size:20px;
 }
 
 a.signin, a.signup, a.signout{
@@ -114,7 +116,8 @@ ul.activities li{
 
 /*** Notices ***/
 .notice{
-  background: lightseagreen;
+  background: #4DD12C;
+  padding-left: 10px;
 }
 
 /*** Forms ***/
@@ -212,13 +215,34 @@ box-shadow:         1px 1px 3px 0px rgba(50, 50, 50, 0.85);
 }
 
 .add{
-  display:block;
-  float:right;
-  font-size:12px;
-  background-color:#fff;
-  color:#000;
-  padding:3px;
-  margin-left: 20px
+  display: block;
+  float: right;
+  font-size: 14px;
+  background-color: #8DE677;
+  color: #fff;
+  padding: 8px;
+  margin: -120px 4%;
+  border: none;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+}
+.add:hover{
+  background-color: #72F752
+}
+
+.remove_favorite{
+  display: block;
+  float: right;
+  font-size: 14px;
+  background-color: #ED6242;
+  color: #fff;
+  padding: 8px;
+  margin: -132px 2%;
+  border: none;
+}
+
+.remove_favorite:hover{
+  background-color:#D4573B;
+  color:#fff
 }
 
 .member_header{

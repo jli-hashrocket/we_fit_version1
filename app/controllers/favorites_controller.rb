@@ -15,7 +15,7 @@ class FavoritesController < ApplicationController
         format.js { flash.now[:notice] = 'Added to Favorites!'}
         format.json { render action: 'index', status: :created, location: @favorite}
       else
-        format.html { render action: 'index', notice: "Cannot add to Favorites" }
+        format.html { render action: 'index', notice: 'Cannot add to Favorites' }
         format.js { flash.now[:alert] = 'Could not be added to Favorites!' }
         format.json { render json: @favorite.errors, status: :unprocessable_entity}
 
@@ -24,9 +24,8 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @favorites = Favorite.all
-    current_user.favorites.destroy(params[:id])
-    render action: 'index', notice: 'A favorite has been removed.'
+    current_user.favorite_users.destroy(params[:id])
+    redirect_to 'index', notice: 'Removed from Favorites'
   end
 
 end

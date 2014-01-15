@@ -30,6 +30,7 @@ You have <%= @favorites.size  %> favorites
           </ul>
         </div>
       </dd>
+      <%= link_to 'Remove', user_favorite_path(id: favorite.id), method: :delete, class: 'remove_favorite' %>
     <% end %>
   </dl>
 

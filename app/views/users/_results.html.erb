@@ -17,6 +17,8 @@
               Gender: <%= member.gender %><br/>
             </div>
         </a>
+        <%= button_to 'Add to Favorites', user_favorites_path(current_user, params: {favorited_id: member.id}), remote: true, class: "add" %>
+
         <div id="panel<%= count %>" class="content inactive">
           <p>
           Email: <%=member.email %><br/>
@@ -27,7 +29,6 @@
               &bullet; <li><%= activity.name %></li>
             <% end %></p>
           </ul>
-          <%= button_to 'Add to Favorites', user_favorites_path(current_user, params: {favorited_id: member.id}), remote: true, class: "add" %>
 
         </div>
       </dd>

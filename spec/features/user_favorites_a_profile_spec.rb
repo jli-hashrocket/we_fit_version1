@@ -14,8 +14,7 @@ feature 'User favorites a profile', %q{
 
   scenario 'clicks on profile to favorite', js: true do
     user = FactoryGirl.create(:user)
-    user1 = FactoryGirl.create(:user, username: "PilatesLover")
-    favorite = FactoryGirl.create(:favorite)
+    profile = FactoryGirl.create(:user, username: "PilatesLover")
 
     visit new_user_session_path
 
@@ -27,14 +26,13 @@ feature 'User favorites a profile', %q{
 
     click_on 'Browse Members'
 
-    page.find("#user_#{user1.id}").trigger("click")
+    page.find("#user_#{profile.id}").trigger("click")
     page.find(".add").trigger("click")
+    expect(page).to have_content('Added to Favorites')
 
-    expect(page).to have_content("Added to Favorites")
-
-    click_on "Favorites"
-    expect(page).to have_content(user1.username)
-    expect(page).to have_content(user1.gender)
-    expect(page).to have_content(user1.location)
+    click_on 'Favorites'
+    expect(page).to have_content(profile.username)
+    expect(page).to have_content(profile.gender)
+    expect(page).to have_content(profile.location)
   end
 end
