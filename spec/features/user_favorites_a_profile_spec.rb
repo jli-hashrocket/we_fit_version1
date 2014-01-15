@@ -26,8 +26,11 @@ feature 'User favorites a profile', %q{
 
     click_on 'Browse Members'
 
-    page.find("#user_#{profile.id}").trigger("click")
-    page.find(".add").trigger("click")
+    within "#member_user_#{profile.id}" do
+      page.find("#user_#{profile.id}").trigger('click')
+      page.find('.add').trigger('click')
+    end
+
     expect(page).to have_content('Added to Favorites')
 
     click_on 'Favorites'

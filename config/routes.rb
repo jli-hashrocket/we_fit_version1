@@ -2,11 +2,13 @@ WeFit1::Application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => "registrations" }
   resources :users do
-    resources :favorites
+    resources :favorites, except: [:destroy]
     # member do
     #   get :browse
     # end
   end
+
+  resources :favorites, only: [:destroy]
 
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.

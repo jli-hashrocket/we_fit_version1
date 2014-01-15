@@ -2,35 +2,36 @@
 You have <%= @favorites.size  %> favorites
 <div id="favorites">
   <dl class="accordion" data-accordion>
-    <% count = 0 %>
-    <% @favorites.each do |favorite| %>
-    <% count += 1 %>
-      <dd>
-        <a id="<%= dom_id(favorite) %>" href="#panel<%= count %>">
-            <% if favorite.photo %>
-              <%= image_tag favorite.photo.thumb.url, class: 'member_pic' %>
-            <% end %>
-            <div class="member_header">
-              <span class="members">
-                <%= favorite.username %>
-              </span>
-              Location: <%= favorite.location %><br/>
-              Gender: <%= favorite.gender %><br/>
+    <% @favorites.each_with_index do |favorite, index| %>
+      <dt>
+        <dd>
+          <a id="<%= dom_id(favorite.favorited) %>" href="#panel<%= index %>">
+              <% if favorite.favorited.photo %>
+                <%= image_tag favorite.favorited.photo.thumb.url, class: 'member_pic' %>
+              <% end %>
+              <div class="member_header">
+                <span class="members">
+                  <%= favorite.favorited.username %>
+                </span>
+                Location: <%= favorite.favorited.location %><br/>
+                Gender: <%= favorite.favorited.gender %><br/>
+              </div>
+          </a>
+          <%= link_to 'Remove', favorite_path(favorite), method: :delete, class: 'remove_favorite' %>
+          <div id="panel<%= index %>" class="content inactive">
+            <div class="content_container">
+              Email: <%=favorite.favorited.email %><br/>
+              Summary: <%= favorite.favorited.bio %><br/>
+              Activities:
+              <ul class="activities">
+                <% favorite.favorited.activities.each do |activity| %>
+                  <li><%= activity.name %></li>
+                <% end %>
+              </ul>
             </div>
-        </a>
-        <div id="panel<%= count %>" class="content inactive">
-          <p>
-          Email: <%=favorite.email %><br/>
-          Summary: <%= favorite.bio %><br/>
-          Activities:
-          <ul class="activities">
-            <% favorite.activities.each do |activity| %>
-              &bullet; <li><%= activity.name %></li>
-            <% end %></p>
-          </ul>
-        </div>
-      </dd>
-      <%= link_to 'Remove', user_favorite_path(id: favorite.id), method: :delete, class: 'remove_favorite' %>
+          </div>
+        </dd>
+      </dt>
     <% end %>
   </dl>
 
