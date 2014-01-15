@@ -10,7 +10,7 @@ Acceptance Criteria
 *I must click on 'View Profile'
 } do
 
-  scenario 'signed in, should see member home, profile, browse and sign out buttons' do
+  scenario 'signs in with valid attributes' do
     user = FactoryGirl.create(:user)
     sign_in_fill(user)
     click_on 'Sign in'
@@ -18,6 +18,13 @@ Acceptance Criteria
     expect(page).to have_content("Profile")
     expect(page).to have_content("Browse")
     expect(page).to have_content("Sign Out")
+  end
+
+  scenario 'signs in with invalid attributes' do
+    visit root_path
+    click_on 'Sign In'
+    click_on 'Sign in'
+    expect(page).to have_content("Invalid email or password.")
   end
 
   scenario 'views own profile page' do
@@ -42,9 +49,3 @@ Acceptance Criteria
   end
 end
 
-def sign_in_fill(user)
-    visit root_path
-    click_on 'Sign In'
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-end

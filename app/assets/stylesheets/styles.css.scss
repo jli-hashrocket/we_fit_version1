@@ -3,22 +3,20 @@ body{
   line-height: 1.4em !important;
 }
 
-section{
-  background-color: #ffb53d !important;
-}
 
-section .content{
-  border-top: 1px solid #fff
+.content{
+  border-top: 1px solid #fff !important;
+    background-color: #ffb53d !important;
 }
 
 header{
-  background: image-url('outdoor.jpg');
-  height:700px;
-  background-position: 0 800px;
-  margin-top: 50px
+  background-image: image-url('road.jpg');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  padding: 50px 0 115px;
+  margin-top: -5px;
 }
 .top-bar-section{
-  background: #fff !important;
   -webkit-box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.50);
 -moz-box-shadow:    1px 1px 5px 0px rgba(50, 50, 50, 0.50);
 box-shadow:         1px 1px 5px 0px rgba(50, 50, 50, 0.50);
@@ -26,15 +24,15 @@ box-shadow:         1px 1px 5px 0px rgba(50, 50, 50, 0.50);
 
 #title_container{
   width:60%;
-  margin-left:70px;
+  margin: auto;
 }
 
-nav{
-  position: fixed !important;
-  z-index: 5000 !important;
-  width: 100% !important;
-  margin-top:-50px;
-}
+// nav{
+//   position: fixed !important;
+//   z-index: 5000 !important;
+//   width: 100% !important;
+  // margin-top:-50px;
+// }
 
 div #content{
   margin-top: 20px
@@ -54,11 +52,12 @@ h1#title{
   text-align: center;
   font-size:100px;
   padding-top:60px;
-  text-shadow: 1px 1px 1px gray;
+  text-shadow: 1px 1px 1px black;
+  margin-bottom: 0 !important
 }
 h2.subtitle{
   text-align: center;
-  text-shadow: 1px 1px 1px gray;
+  text-shadow: 2px 2px 2px black;
 }
 
 span.members{
@@ -72,7 +71,7 @@ p.home{
 
 a.signin, a.signup, a.signout{
   display:block;
-  background: image-url('stripe.png');
+  background: image-url('green_stripe.png');
   color:#fff;
   padding: 20px 20px 20px 40px;
   font-size:30px;
@@ -85,7 +84,7 @@ a.signin, a.signup, a.signout{
 }
 
 a.signin:hover, a.signup:hover, a.signout:hover{
-  border-color: #008CBA;
+  background: image-url('green_stripe_hover.png');
 }
 
 a.signin{
@@ -94,6 +93,10 @@ a.signin{
 
 a.signup{
   float:right;
+}
+
+a.signout{
+  margin:auto
 }
 
 .button_container{
@@ -107,6 +110,11 @@ ul.activities li{
   display:inline;
   padding-right:5px;
   font-size:16px;
+}
+
+/*** Notices ***/
+.notice{
+  background: lightseagreen;
 }
 
 /*** Forms ***/
@@ -170,8 +178,8 @@ label{
 #search_container h4,h5,h6{
   font-family:'Source Sans Pro', Helvetica, sans-serif !important;
 }
-/*** END ***/
 
+/*** Members ***/
 #results{
   float:right;
   width: 60%
@@ -203,6 +211,23 @@ box-shadow:         1px 1px 3px 0px rgba(50, 50, 50, 0.85);
   zoom:1;
 }
 
+.add{
+  display:block;
+  float:right;
+  font-size:12px;
+  background-color:#fff;
+  color:#000;
+  padding:3px;
+  margin-left: 20px
+}
+
+.member_header{
+  margin-top:-10px;
+  font-size:16px !important;
+  padding-bottom:20px;
+  width:375px
+}
+
 /*** Accordion ***/
 .accordion dd{
   padding-bottom:10px !important;
@@ -217,14 +242,9 @@ box-shadow:         1px 1px 3px 0px rgba(50, 50, 50, 0.85);
 }
 
 .accordion .content.active{
-  color: #999 !important;
+  color: #555 !important;
 }
 
-.member_header{
-  margin-top:-10px;
-  font-size:16px !important;
-  padding-bottom:20px;
-}
 
 .accordion .content.active p{
     font-size:16px !important;
@@ -236,4 +256,5 @@ footer{
   text-align:center;
   color:#ffb53d;
   font-size:14px;
+  margin:20px
 }

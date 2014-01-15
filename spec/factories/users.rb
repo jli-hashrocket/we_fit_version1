@@ -10,8 +10,8 @@ FactoryGirl.define do
     last_name "Smith"
     email
     username "Cure4Ever"
-    password "L1pst1cknhairspr@y"
-    password_confirmation "L1pst1cknhairspr@y"
+    password "L1pst1cknhairspray"
+    password_confirmation "L1pst1cknhairspray"
     gender "Male"
   end
 end

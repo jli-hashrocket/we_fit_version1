@@ -10,6 +10,6 @@ feature 'User views homepage, while not logged in', %q{
       visit root_path
 
       expect(page).to have_content("Sign In")
-      expect(page).to have_content("Sign Up")
+      expect(page).to have_content("Join Us")
   end
 end

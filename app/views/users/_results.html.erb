@@ -1,10 +1,11 @@
 <div id="results">
+  <% if current_user %>
   <dl class="accordion" data-accordion>
     <% count = 0 %>
     <% @members.each do |member| %>
     <% count += 1 %>
       <dd>
-        <a href="#panel<%= count %>">
+        <a id="<%= dom_id(member) %>" href="#panel<%= count %>">
             <% if member.photo %>
               <%= image_tag member.photo.thumb.url, class: 'member_pic' %>
             <% end %>
@@ -26,8 +27,11 @@
               &bullet; <li><%= activity.name %></li>
             <% end %></p>
           </ul>
+          <%= button_to 'Add to Favorites', user_favorites_path(current_user, params: {favorited_id: member.id}), remote: true, class: "add" %>
+
         </div>
       </dd>
     <% end %>
   </dl>
+  <% end %>
 </div>
