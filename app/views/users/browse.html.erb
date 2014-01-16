@@ -1,6 +1,14 @@
 <h1>Browse Members</h1>
 <div class="favorites_msg"></div>
-<%= render partial: 'form_search', object: @activities %>
-<%= render partial: 'results', object: @members %>
+<div class="row">
+  <div class="large-6 columns">
+    <%= render partial: 'form_search', object: @activities %>
+  </div>
+  <div class="large-6 columns">
+    <%= render partial: 'results', object: @members %>
+  </div>
+</div>
+
+
 
 

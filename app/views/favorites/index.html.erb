@@ -3,35 +3,38 @@ You have <%= @favorites.size  %> favorites
 <div id="favorites">
   <dl class="accordion" data-accordion>
     <% @favorites.each_with_index do |favorite, index| %>
-      <dt>
-        <dd>
-          <a id="<%= dom_id(favorite.favorited) %>" href="#panel<%= index %>">
-              <% if favorite.favorited.photo %>
-                <%= image_tag favorite.favorited.photo.thumb.url, class: 'member_pic' %>
-              <% end %>
-              <div class="member_header">
-                <span class="members">
-                  <%= favorite.favorited.username %>
-                </span>
-                Location: <%= favorite.favorited.location %><br/>
-                Gender: <%= favorite.favorited.gender %><br/>
-              </div>
-          </a>
-          <%= link_to 'Remove', favorite_path(favorite), method: :delete, class: 'remove_favorite' %>
-          <div id="panel<%= index %>" class="content inactive">
-            <div class="content_container">
-              Email: <%=favorite.favorited.email %><br/>
-              Summary: <%= favorite.favorited.bio %><br/>
-              Activities:
-              <ul class="activities">
-                <% favorite.favorited.activities.each do |activity| %>
-                  <li><%= activity.name %></li>
-                <% end %>
-              </ul>
-            </div>
+      <dd id="member_<%= favorite.favorited.id %>">
+        <a id="<%= dom_id(favorite.favorited) %>" href="#panel<%= index %>">
+          <% if favorite.favorited.photo %>
+            <%= image_tag favorite.favorited.photo.thumb.url, class: 'member_pic' %>
+          <% end %>
+
+          <div class="member_header">
+            <span class="members">
+              <%= favorite.favorited.username %>
+            </span>
+
+            Location: <%= favorite.favorited.location %><br/>
+            Gender: <%= favorite.favorited.gender %><br/>
           </div>
-        </dd>
-      </dt>
+        </a>
+
+        <%= link_to 'Remove', favorite_path(favorite), class: 'remove_favorite',
+          data: { "favorite-user-id" => "member_#{favorite.favorited.id}" } %>
+
+        <div id="panel<%= index %>" class="content inactive">
+          <div class="content_container">
+            Email: <%=favorite.favorited.email %><br/>
+            Summary: <%= favorite.favorited.bio %><br/>
+            Activities:
+            <ul class="activities">
+              <% favorite.favorited.activities.each do |activity| %>
+                <li><%= activity.name %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </dd>
     <% end %>
   </dl>
 
