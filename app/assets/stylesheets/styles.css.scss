@@ -108,6 +108,10 @@ a.signout{
   margin:auto
 }
 
+#user_search .button{
+  padding: 15px 20px;
+}
+
 .button_container{
   width:360px;
   margin:auto;
@@ -198,14 +202,8 @@ cancel{
 
 /*** Search Box ***/
 #search_container{
-  float:left;
   border:3px solid #fff;
   padding: 10px;
-  width:35%;
-}
-
-#search_container input[type="text"]{
-  width:100% !important;
 }
 
 #search_container ul li{
@@ -233,20 +231,10 @@ cancel{
 }
 
 /*** Members ***/
-#results{
-  float:right;
-  width: 60%
-}
 
 img.profile_pic{
   border: 5px solid #fff;
   margin-bottom: 20px;
-  float:left;
-}
-
-#profile_container{
-  width:54%;
-  float:right;
 }
 
 #profile_table{
@@ -281,8 +269,8 @@ box-shadow:         1px 1px 3px 0px rgba(50, 50, 50, 0.85);
   font-size: 14px;
   background-color: #8DE677;
   color: #fff;
-  padding: 8px;
-  margin: -120px 4%;
+  padding: 5px;
+  margin: -43px 3%;
   border: none;
   font-family: "Source Sans Pro", Helvetica, sans-serif;
 }
@@ -339,14 +327,15 @@ box-shadow:         1px 1px 3px 0px rgba(50, 50, 50, 0.85);
   float: right;
   font-size: 14px;
   background-color: #ED6242 !important;
-  padding: 8px;
-  margin: -123px 2%;
+  padding: 5px;
+  margin: -43px 2%;
   border: none;
 }
 
 .accordion dd > a.remove_favorite:hover{
   background-color:#D4573B !important;
 }
+
 
 .content_container{
   padding:15px

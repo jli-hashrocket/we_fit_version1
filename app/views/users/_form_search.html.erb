@@ -1,25 +1,25 @@
-<div id="search_container">
-<%= search_form_for @search do |f| %>
-  <h3>Search</h3>
-  <h6><%= f.label :username_cont %></h6>
-  <%= f.text_field :username_cont %>
-  <h6><%= f.label :location_cont %></h6>
-  <%= f.text_field :location_cont %>
-  <h6><label>Gender</label></h6>
-  <%= check_box_tag( "q[gender_start]",'male',  false, id: 'male' )%> Male
-  <%= check_box_tag( "q[gender_start]",'female', false, id: 'female' )%> Female
-  <h6><label>Activities</label></h6>
-    <ul>
-    <% @activities.each do |activity| %>
-      <li>
-        <%= f.label activity.name %>
-        <%= check_box_tag('q[user_activities_activity_id_eq_any][]',
-          activity.id,
-          activity_checkbox_checked_value_for(activity),
-          id: activity.name ) %>
-      </li>
-    <% end %>
-    </ul>
-  <%= f.submit %>
-<% end %>
+<div id="search_container" class="large-4 columns">
+  <%= search_form_for @search do |f| %>
+    <h3>Search</h3>
+    <h6><%= f.label :username_cont %></h6>
+    <%= f.text_field :username_cont %>
+    <h6><%= f.label :location_cont %></h6>
+    <%= f.text_field :location_cont %>
+    <h6><label>Gender</label></h6>
+    <%= check_box_tag( "q[gender_start]",'male',  false, id: 'male' )%> Male
+    <%= check_box_tag( "q[gender_start]",'female', false, id: 'female' )%> Female
+    <h6><label>Activities</label></h6>
+      <ul>
+      <% @activities.each do |activity| %>
+        <li>
+          <%= f.label activity.name %>
+          <%= check_box_tag('q[user_activities_activity_id_eq_any][]',
+            activity.id,
+            activity_checkbox_checked_value_for(activity),
+            id: activity.name ) %>
+        </li>
+      <% end %>
+      </ul>
+    <%= f.submit class: 'button' %>
+  <% end %>
 </div>
