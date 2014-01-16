@@ -28,9 +28,12 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    current_user.favorites.destroy(params[:id])
-    redirect_to user_favorites_path(current_user),
-      notice: 'Removed from Favorites'
+    respond_to do |format|
+      if current_user.favorites.destroy(params[:id])
+        format.html { redirect_to user_favorites_path(current_user),notice: 'Removed from Favorites' }
+        format.js { flash[:notice] = 'Removed from Favorites' }
+        format.json { head :no_content }
+      end
+    end
   end
-
 end
