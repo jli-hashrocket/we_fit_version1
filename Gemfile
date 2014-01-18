@@ -21,6 +21,9 @@ gem 'ransack'
 # Use Poltergiest for Javascript testing
 gem 'poltergeist'
 
+#Use Kaminari
+gem 'kaminari'
+
 # Use Fog for Amazon S3 support
 gem 'fog', '~> 1.3.1'
 

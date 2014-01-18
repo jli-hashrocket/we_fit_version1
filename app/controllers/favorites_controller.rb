@@ -2,7 +2,7 @@ class FavoritesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-     @favorites = current_user.favorites
+     @favorites = current_user.favorites.page(params[:page]).per(10)
      @user = current_user
   end
 
