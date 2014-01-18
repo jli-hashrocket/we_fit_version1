@@ -1,6 +1,8 @@
 <h1>Your Favorite Profiles</h1>
-You have <%= @favorites.size  %> favorites
+
 <div id="favorites">
+  <%= paginate @favorites %>
+
   <dl class="accordion" data-accordion>
     <% @favorites.each_with_index do |favorite, index| %>
       <dd id="member_<%= favorite.favorited.id %>">
@@ -37,5 +39,6 @@ You have <%= @favorites.size  %> favorites
       </dd>
     <% end %>
   </dl>
+  <%= paginate @favorites %>
 
 </div>

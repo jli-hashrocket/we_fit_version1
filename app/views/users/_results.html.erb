@@ -1,6 +1,6 @@
 <div id="results" class="large-8 columns">
   <% if current_user %>
-  There are <%= @members.size %> member matches.
+  <%= paginate @members %>
   <dl class="accordion" data-accordion>
     <% count = 0 %>
     <% @members.each do |member| %>
@@ -37,5 +37,6 @@
       </dt>
     <% end %>
   </dl>
+  <%= paginate @members %>
   <% end %>
 </div>
