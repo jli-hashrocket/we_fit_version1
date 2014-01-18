@@ -24,6 +24,10 @@ gem 'poltergeist'
 #Use Kaminari
 gem 'kaminari'
 
+#Use Geocoder and Google Maps
+gem 'geocoder'
+gem 'gmaps4rails'
+
 # Use Fog for Amazon S3 support
 gem 'fog', '~> 1.3.1'
 
