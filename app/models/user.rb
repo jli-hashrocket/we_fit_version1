@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   validates_presence_of :username
   validates_presence_of :gender
 
-  geocoded_by :user
+  geocoded_by :location
   after_validation :geocode
 
   has_many :user_activities,

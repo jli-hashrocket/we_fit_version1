@@ -5,6 +5,8 @@
     <%= f.text_field :username_cont %>
     <h6><%= f.label :location_cont %></h6>
     <%= f.text_field :location_cont %>
+    <h6><%= label_tag(:within, "Within(in miles)") %></h6>
+    <%= select_tag :within, options_for_select(["5","10","15","20","25"]), include_blank: true %>
     <h6><label>Gender</label></h6>
     <%= check_box_tag( "q[gender_start]",'male',  false, id: 'male' )%> Male
     <%= check_box_tag( "q[gender_start]",'female', false, id: 'female' )%> Female
@@ -22,4 +24,22 @@
       </ul>
     <%= f.submit class: 'button' %>
   <% end %>
+
+  <div style='width: 250px;'>
+    <div id="map" style='width: 250px; height: 250px;'></div>
+  </div>
+
+<%= content_for :scripts do %>
+  <script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
+  </script>
+<% end %>
+
+
 </div>
+
