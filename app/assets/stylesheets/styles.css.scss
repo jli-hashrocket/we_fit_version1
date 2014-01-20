@@ -168,6 +168,11 @@ input[type="text"], input[type="password"],input[type="email"],#user_gender, #us
   padding:5px
 }
 
+#search_container select#within{
+  height:35px;
+  padding: 5px
+}
+
 input#submit{
   background-color: #6db3f2 !important
 }
@@ -204,6 +209,7 @@ cancel{
 #search_container{
   border:3px solid #fff;
   padding: 10px;
+  margin-bottom: 50px
 }
 
 #search_container ul li{
@@ -321,7 +327,9 @@ box-shadow:         1px 1px 3px 0px rgba(50, 50, 50, 0.85);
 .accordion .content.active, .accordion .content.inactive{
   padding:5px
 }
-
+.accordion dd{
+  margin-bottom: 5px !important
+}
 .accordion dd > a.remove_favorite{
   display: block;
   float: right;
@@ -354,6 +362,14 @@ footer{
 /*** Pagination ***/
 nav.pagination{
   padding:10px 0
+}
+
+.pagination a{
+  color:#fff;
+  transition: color 2s
+}
+
+.pagination a:hover{
 }
 
 

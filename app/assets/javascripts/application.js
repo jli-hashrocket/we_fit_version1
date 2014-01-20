@@ -13,8 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require underscore
+//= require gmaps/google
 //= require_tree .
 //= require_self
+
 
 $(document).foundation();
 

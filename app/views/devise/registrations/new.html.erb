@@ -58,6 +58,9 @@
       <%= f.button :submit, label:  "Sign up", class: "button" %>
     </div>
   </div>
+  <%= f.hidden_field :latitude %>
+  <%= f.hidden_field :longitude %>
+
 
   <% end %>
   <%= render "devise/shared/links" %>
