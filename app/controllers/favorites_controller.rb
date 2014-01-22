@@ -9,7 +9,6 @@ class FavoritesController < ApplicationController
   def create
     @favorite = current_user.favorites
       .build(favorited_id: params[:user_id])
-
     respond_to do |format|
       if @favorite.save
         format.html { redirect_to 'index', notice: 'Added to Favorites' }
