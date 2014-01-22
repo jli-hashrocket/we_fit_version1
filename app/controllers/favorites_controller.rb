@@ -8,7 +8,7 @@ class FavoritesController < ApplicationController
 
   def create
     @favorite = current_user.favorites
-      .build(favorited_id: params[:favorited_id])
+      .build(favorited_id: params[:user_id])
 
     respond_to do |format|
       if @favorite.save
