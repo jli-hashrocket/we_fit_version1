@@ -56,7 +56,7 @@ Acceptance Criteria
     fill_in "q_username_cont", with: user.username
     check("male")
     fill_in "q_location_cont", with: user.location
-    check(weightlifting.name)
+    check("weightlifting")
     check(jogging.name)
 
     click_on "Search"
