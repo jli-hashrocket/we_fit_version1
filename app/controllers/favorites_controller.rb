@@ -20,7 +20,6 @@ class FavoritesController < ApplicationController
         format.html { render action: 'index', notice: 'Cannot add to Favorites' }
         format.js { flash.now[:alert] = 'Could not be added to Favorites!' }
         format.json { render json: @favorite.errors, status: :unprocessable_entity}
-
       end
     end
   end
@@ -28,7 +27,7 @@ class FavoritesController < ApplicationController
   def destroy
     respond_to do |format|
       if current_user.favorites.destroy(params[:id])
-        format.html { redirect_to user_favorites_path(current_user),notice: 'Removed from Favorites' }
+        format.html { redirect_to user_favorites_path(current_user), notice: 'Removed from Favorites' }
         format.js { flash[:notice] = 'Removed from Favorites' }
         format.json { head :no_content }
       end

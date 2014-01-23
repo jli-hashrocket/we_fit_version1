@@ -7,10 +7,21 @@ feature 'User deletes a favorite', %q{
 } do
   # * I must delete the profile that I no longer want to keep
 
-  scenario 'deletes a favorite', js: true do
+  scenario 'deletes a favorite', js: true  do
     user = FactoryGirl.create(:user)
-    profile = FactoryGirl.create(:user, username: 'PilatesLover')
+    favorite = FactoryGirl.create(:favorite, user: user)
+    favorited = favorite.favorited
 
+    sign_in_as(user)
+    visit user_favorites_path(user)
+    click_on "Remove"
+    visit user_favorites_path(user)
+
+    # expect(page).to have_content('Removed from Favorites')
+    expect(page).to_not have_content favorited.first_name
+  end
+
+  def sign_in_as(user)
     visit new_user_session_path
 
     within '.new_user' do
@@ -18,19 +29,5 @@ feature 'User deletes a favorite', %q{
       fill_in 'Password', with: user.password
       click_on 'Sign in'
     end
-
-    click_on 'Browse Members'
-
-    within "#member_user_#{profile.id}" do
-      page.find("#user_#{profile.id}").trigger('click')
-      page.find('.add').trigger('click')
-    end
-
-    expect(page).to have_content('Added to Favorites')
-
-    click_on 'Favorites'
-    page.find('.remove_favorite').trigger('click')
-    expect(page).to have_content('Removed from Favorites')
-    expect(page).to_not have_content(profile.username)
   end
 end
