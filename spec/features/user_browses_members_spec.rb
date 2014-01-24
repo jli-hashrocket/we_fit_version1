@@ -68,4 +68,65 @@ Acceptance Criteria
     expect(page).to have_content("Weightlifting")
   end
 
+  scenario 'selects miles from Within field' do
+    user = FactoryGirl.create(:user, location: "boston, ma")
+    member = FactoryGirl.create(:user, location: "medford, ma")
+
+    sign_in_fill(user)
+    click_on "Sign in"
+    click_on "Browse Members"
+    select "15",from: "within"
+    expect(page).to have_content(member.username)
+  end
+
+  scenario 'searches with username only' do
+    user = FactoryGirl.create(:user, location: "boston, ma")
+    member = FactoryGirl.create(:user, location: "medford, ma")
+
+    sign_in_fill(user)
+    click_on "Sign in"
+    click_on "Browse Members"
+
+    fill_in "q_username_cont", with: member.username
+    expect(page).to have_content(member.username)
+  end
+
+  scenario 'searches with location only' do
+    user = FactoryGirl.create(:user, location: "boston, ma")
+    member = FactoryGirl.create(:user, location: "medford, ma")
+
+    sign_in_fill(user)
+    click_on "Sign in"
+    click_on "Browse Members"
+
+    fill_in "q_location_cont", with: member.location
+    expect(page).to have_content(member.location)
+  end
+
+  scenario 'searches with gender only' do
+    user = FactoryGirl.create(:user, location: "boston, ma")
+    member = FactoryGirl.create(:user, gender: "female")
+
+    sign_in_fill(user)
+    click_on "Sign in"
+    click_on "Browse Members"
+
+    check("female")
+    expect(page).to have_content(member.gender)
+  end
+
+  scenario 'searches with activities only' do
+
+    user = FactoryGirl.create(:user, location: "boston, ma")
+    member = FactoryGirl.create(:user, username: "Buffy")
+    jogging = FactoryGirl.create(:activity, name: "Jogging")
+    user_activity = FactoryGirl.create(:user_activity, user_id: member.id, activity_id: jogging.id)
+
+    sign_in_fill(user)
+    click_on "Sign in"
+    click_on "Browse Members"
+
+    check(jogging.name)
+    expect(page).to have_content(member.username)
+  end
 end

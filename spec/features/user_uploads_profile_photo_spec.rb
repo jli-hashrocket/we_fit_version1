@@ -30,4 +30,25 @@ feature 'User uploads profile picture', %q{
     expect(User.last.photo).to be_present
   end
 
+  scenario 'uploads photo when editing profile' do
+    user = FactoryGirl.create(:user)
+    sign_in_fill(user)
+    click_on 'Sign in'
+    click_on 'Edit Profile'
+    fill_profile_fields(user)
+    attach_file "Photo", Rails.root.join('spec/file_fixtures/profile.png')
+    click_on "Update User"
+
+    expect(User.last.photo).to be_present
+  end
+
+  def fill_profile_fields(user)
+    fill_in "First name", with: user.first_name
+    fill_in "Last name",  with: user.last_name
+    fill_in "Email", with: user.email
+    fill_in "Username", with: user.username
+    fill_in "Current password", with: user.password
+    select "male", from: "Gender"
+  end
+
 end
