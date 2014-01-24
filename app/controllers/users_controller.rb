@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       @search = User.search(params[:q])
     end
 
-    @members = @search.result.page(params[:page]).per(10)
+    @members = @search.result(distinct: true).page(params[:page]).per(10)
     @users = @members.where.not(latitude: nil, longitude: nil)
     @hash = Gmaps4rails.build_markers(@users) do |user, marker|
         marker.lat user.latitude
