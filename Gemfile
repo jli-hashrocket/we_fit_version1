@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Use Dotenv
+gem 'dotenv-rails', :groups => [:development, :test]
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
@@ -70,7 +73,6 @@ group :test, :development do
   gem 'shoulda'
   gem 'capybara'
   gem 'email_spec'
-  gem 'dotenv-rails'
 end
 
 
