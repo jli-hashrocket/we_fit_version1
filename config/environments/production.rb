@@ -84,8 +84,10 @@ WeFit1::Application.configure do
   :authentication => :plain,
   :user_name      => ENV['SENDGRID_USERNAME'],
   :password       => ENV['SENDGRID_PASSWORD'],
-  :domain         => 'heroku.com',
+  :domain         => ENV['SENDGRID_DOMAIN'],
   :enable_starttls_auto => true
 }
+  config.action_mailer.default_url_options = { :host => 'wefit.herokuapp.com' }
+
 
 end
