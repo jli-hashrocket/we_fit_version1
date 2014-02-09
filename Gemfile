@@ -72,6 +72,7 @@ group :test, :development do
   gem 'valid_attribute'
   gem 'shoulda'
   gem 'capybara'
+  gem 'capybara-webkit'
   gem 'email_spec'
 end
 

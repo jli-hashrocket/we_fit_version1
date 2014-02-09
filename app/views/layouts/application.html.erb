@@ -42,6 +42,12 @@
                   <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
                   <li><%= link_to 'Browse Members', users_path %></li>
                   <li><%= link_to 'Favorites', user_favorites_path(current_user) %></li>
+                  <li class="has-dropdown">
+                    <a href="#">Messages</a>
+                    <ul class="dropdown">
+
+                    </ul>
+                  </li>
                 <% end %>
               </ul>
             </div>
