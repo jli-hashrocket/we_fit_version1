@@ -3,9 +3,6 @@ WeFit1::Application.routes.draw do
   devise_for :users, :controllers => { :registrations => "registrations" }
   resources :users do
     resources :favorites, except: [:destroy]
-    # member do
-    #   get :browse
-    # end
   end
 
   resources :favorites, only: [:destroy]
