@@ -13,7 +13,7 @@ feature 'User checks messages', %q{
     sign_in_fill(user)
     click_on 'Sign in'
 
-    page.find('a', text: 'Messages').trigger(:mouseover)
+    # page.find('a', text: 'Messages').trigger(:mouseover)
     # click_on 'Inbox'
     # expect(page).to have_content('Inbox')
 
