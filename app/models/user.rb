@@ -44,6 +44,10 @@ class User < ActiveRecord::Base
     unread_message_count > 0 ? true : false
   end
 
+  def unread_message_count
+    messages.count(conditions: ['recipient_id = ? AND read_at IS NULL',self.id])
+  end
+
   def send_mail
     if save
       UserConfirmation.member_info(self).deliver
