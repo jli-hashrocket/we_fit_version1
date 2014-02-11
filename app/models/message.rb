@@ -26,4 +26,8 @@ class Message < ActiveRecord::Base
     message
   end
 
+  def read?
+    self.read_at.nil? ? false : true
+  end
+
 end
