@@ -30,8 +30,19 @@ class User < ActiveRecord::Base
     through: :favorites,
     source: :favorited
 
+  has_many :received_messages,
+    class_name: 'Message',
+    primary_key: 'id',
+    foreign_key: 'recipient_id',
+    order: 'messages.created_at DESC',
+    conditions: ['messages.recipient_deleted =?', false]
+
 
   mount_uploader :photo, PhotoUploader
+
+  def unread_messages?
+    unread_message_count > 0 ? true : false
+  end
 
   def send_mail
     if save
