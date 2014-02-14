@@ -21,6 +21,9 @@ gem 'simple_form'
 # Use Ransack
 gem 'ransack'
 
+# Use HAML
+gem 'haml'
+
 # Use Poltergiest for Javascript testing
 gem 'poltergeist'
 

@@ -89,6 +89,8 @@ GEM
       sass (>= 3.2.0)
     geocoder (1.1.9)
     gmaps4rails (2.1.1)
+    haml (4.0.5)
+      tilt
     hike (1.2.3)
     hirb (0.7.1)
     i18n (0.6.9)
@@ -236,6 +238,7 @@ DEPENDENCIES
   foundation-rails
   geocoder
   gmaps4rails
+  haml
   hirb
   jbuilder (~> 1.2)
   jquery-rails

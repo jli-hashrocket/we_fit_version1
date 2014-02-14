@@ -1,0 +1,14 @@
+%table
+  %thead
+    %tr
+      %th Subject
+      %th Recipient
+      %th Date Sent
+  %tbody
+    - @outbox_messages.each do |message|
+      %tr
+        %td= message.subject
+        %td= message.recipient.username
+        %td= message.recipient.created_at
+
+

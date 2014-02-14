@@ -37,6 +37,13 @@ class User < ActiveRecord::Base
     order: 'messages.created_at DESC',
     conditions: ['messages.recipient_deleted =?', false]
 
+  has_many :sent_messages,
+    class_name: 'Message',
+    primary_key: 'id',
+    foreign_key: 'sender_id',
+    order: 'messages.created_at DESC',
+    conditions: ['messages.sender_deleted =?', false]
+
 
   mount_uploader :photo, PhotoUploader
 
