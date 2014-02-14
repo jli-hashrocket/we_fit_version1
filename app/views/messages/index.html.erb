@@ -1,14 +1,22 @@
-<% if @inbox_messages.blank? %>
-  <label>Inbox is empty</label>
-<% else %>
-  <table>
-    <thead>
-      <tr>
-        <th>Subject</th>
-        <th>Sender</th>
-      </tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Subject</th>
+      <th>Sender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @inbox_messages.each do |message| %>
+    <tr>
+      <td>
+        <% if !message.read? %>
+          <strong><%= message.subject %></strong>
+        <% else %>
+          <%= message.subject %>
+        <% end %>
+      </td>
+      <td><%= message.sender.username %> at <%= message.sender.created_at %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

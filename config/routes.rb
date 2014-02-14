@@ -7,6 +7,12 @@ WeFit1::Application.routes.draw do
 
   resources :favorites, only: [:destroy]
 
+  resources :messages do
+    collection do
+      get 'index', to: 'messages#index', as: :index
+    end
+  end
+
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,11 +1,9 @@
 class MessagesController < ApplicationController
-  before_filter :set_user
+  before_filter :authenticate_user!
 
   def index
-    if params[:mailbox] == "sent"
-      @messages = @user.sent_messages
-    elsif params[:mailbox] == "inbox"
-      @messages = @user.received_messages
-    end
+    inbox = Message.new
+    @inbox_messages = current_user.received_messages
   end
+
 end

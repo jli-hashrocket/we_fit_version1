@@ -90,6 +90,7 @@ GEM
     geocoder (1.1.9)
     gmaps4rails (2.1.1)
     hike (1.2.3)
+    hirb (0.7.1)
     i18n (0.6.9)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
@@ -235,6 +236,7 @@ DEPENDENCIES
   foundation-rails
   geocoder
   gmaps4rails
+  hirb
   jbuilder (~> 1.2)
   jquery-rails
   kaminari
