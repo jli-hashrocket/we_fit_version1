@@ -1,0 +1,18 @@
+%table
+  %thead
+    %tr
+      %th Subject
+      %th Sender
+      %th Date Sent
+  %tbody
+    - @inbox_messages.each do |message|
+      %tr
+        - if !message.read?
+          %td{class: "unread"}= message.subject
+        - else
+          %td= message.subject
+        %td= message.sender.username
+        %td= message.sender.created_at
+
+
+
