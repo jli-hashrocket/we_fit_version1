@@ -74,6 +74,7 @@ group :test, :development do
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'email_spec'
+  gem 'hirb'
 end
 
 
