@@ -9,14 +9,13 @@ feature 'User checks messages', %q{
   # * I must go to messages
   # * I must selected Inbox
   scenario 'goes to Inbox', js: true do
-    user = FactoryGirl.create(:user)
-    sign_in_fill(user)
+    recipient = FactoryGirl.create(:user)
+    sender = FactoryGirl.create(:user, first_name: "James", last_name: "Spader", username: "someguy")
+    message = FactoryGirl.create(:message, recipient_id: recipient.id, sender_id: sender.id)
+    sign_in_fill(recipient)
     click_on 'Sign in'
-
-    # page.find('a', text: 'Messages').trigger(:mouseover)
-    # click_on 'Inbox'
-    # expect(page).to have_content('Inbox')
-
+    visit index_messages_path
+    expect(page).to have_content(message.subject)
   end
 
 end

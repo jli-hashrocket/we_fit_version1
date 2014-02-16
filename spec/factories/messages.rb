@@ -6,8 +6,8 @@ FactoryGirl.define do
     recipient_id 1
     sender_deleted false
     recipient_deleted false
-    subject "MyString"
-    body "MyText"
+    subject "Hello"
+    body "I saw your profile"
     read_at "2014-02-09 17:38:53"
     container "MyString"
   end
