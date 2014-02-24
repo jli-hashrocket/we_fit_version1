@@ -18,4 +18,14 @@ feature 'User checks messages', %q{
     expect(page).to have_content(message.subject)
   end
 
+  scenario 'opens a message' do
+    recipient = FactoryGirl.create(:user)
+    sender = FactoryGirl.create(:user, first_name: "James", last_name: "Spader", username: "someguy")
+    message = FactoryGirl.create(:message, recipient_id: recipient.id, sender_id: sender.id)
+    sign_in_fill(recipient)
+    click_on 'Sign in'
+    visit index_messages_path
+    click_link message.subject
+  end
+
 end
