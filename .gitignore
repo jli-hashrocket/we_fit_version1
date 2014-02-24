@@ -17,4 +17,4 @@
 /public/uploads/tmp
 config/database.yml
 public/uploads
-.env
+config/carrierwave_env.rb
