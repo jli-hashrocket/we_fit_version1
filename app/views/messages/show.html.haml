@@ -1,6 +1,8 @@
+%h3= "You have a message from #{@message.sender.username}!"
+%img{class: 'member_pic'}= image_tag @sender.photo.thumb.url
+
 %p= "Subject: #{@message.subject}"
 %p= "From: #{@message.sender.username}"
 %p= "Sent at: #{@message.sender.created_at}"
 %p= "Message: #{@message.body}"
-%p
-  %img{class: 'member_pic'}= image_tag @sender.photo.url(:small_thumb)
+
