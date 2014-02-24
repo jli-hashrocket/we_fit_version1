@@ -48,5 +48,6 @@ RSpec.configure do |config|
   config.include(EmailSpec::Matchers)
   config.include(DeviseSignIn)
   config.include(AddFavorite)
+  config.include(CreateMessage)
 
 end

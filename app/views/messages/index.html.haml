@@ -9,9 +9,9 @@
     - @inbox_messages.each do |message|
       %tr
         - if !message.read?
-          %td{class: "unread"}= message.subject
+          %td{class: "unread"}= link_to message.subject, message_path(message.id)
         - else
-          %td= message.subject
+          %td= link_to message.subject, message_path(message.id)
         %td= message.sender.username
         %td= message.sender.created_at
 
