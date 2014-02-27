@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
   def show
     @message = Message.find(params[:id])
     @sender = User.find(@message.sender_id)
-    if current_user.id == @message.sender_id
+    if @message.is_inbox_message?(current_user.id)
       @read_message = Message.reading_message(@message.id, @message.recipient_id)
     else
       @read_message = @message
