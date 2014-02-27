@@ -7,7 +7,7 @@
   %tbody
     - @outbox_messages.each do |message|
       %tr
-        %td= message.subject
+        %td= link_to message.subject, message_path(message.id)
         %td= message.recipient.username
         %td= message.recipient.created_at
 

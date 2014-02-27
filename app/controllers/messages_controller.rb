@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   before_filter :authenticate_user!
 
-  def index
+  def inbox
     @inbox_messages = current_user.received_messages
   end
 
@@ -12,7 +12,11 @@ class MessagesController < ApplicationController
   def show
     @message = Message.find(params[:id])
     @sender = User.find(@message.sender_id)
-    @read_message = Message.reading_message(@message.id, @message.recipient_id)
+    if current_user
+      @read_message = Message.reading_message(@message.id, @message.recipient_id)
+    else
+      @read_message = @message
+    end
   end
 
   private
