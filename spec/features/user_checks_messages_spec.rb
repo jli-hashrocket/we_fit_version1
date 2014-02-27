@@ -26,6 +26,11 @@ feature 'User checks messages', %q{
     click_on 'Sign in'
     visit index_messages_path
     click_link message.subject
+
+    expect(page).to have_content(message.body)
+    expect(page).to have_content(message.subject)
+    expect(page).to have_content(sender.username)
   end
+
 
 end

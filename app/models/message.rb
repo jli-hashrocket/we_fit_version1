@@ -16,14 +16,11 @@ class Message < ActiveRecord::Base
   #   self.sender_deleted && self.recipient_deleted ? self.destroy : save!
   # end
 
-  # def self.reading_message(id, reader)
-  #   message = find(id, conditions: ["sender_id = ? OR recipient_id = ?", reader, reader])
-  #   if message.read_at.nil? && (message.recipient.id == reader)
-  #     message.read_at = Time.now
-  #     message.save!
-  #   end
-  #   message
-  # end
+  def self.reading_message(id, reader)
+    message = self.find(id, conditions: ["sender_id = ? OR recipient_id = ?", reader, reader])
+    message.update_attribute(:read_at, Time.now) if message.read_at.nil? && (message.recipient_id == reader)
+    message
+  end
 
 
   def read?
