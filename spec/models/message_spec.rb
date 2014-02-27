@@ -18,4 +18,12 @@ describe Message do
       expect(message2.read?).to eql(true)
     end
   end
+
+  context 'is reading message' do
+    it 'returns message with updated read_at attribute' do
+      read_message = Message.reading_message(message1.id, message1.recipient_id)
+      expect(read_message.read_at).to eql(read_message.read_at)
+    end
+  end
+
 end
