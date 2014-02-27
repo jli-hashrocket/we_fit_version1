@@ -9,7 +9,7 @@ WeFit1::Application.routes.draw do
 
   resources :messages do
     collection do
-      get 'index', to: 'messages#index', as: :index
+      get 'inbox', to: 'messages#inbox', as: :inbox
       get 'sent', to: 'messages#sent', as: :sent
     end
   end
