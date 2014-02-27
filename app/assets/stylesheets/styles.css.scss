@@ -376,3 +376,8 @@ nav.pagination{
 .unread{
   font-weight:bold
 }
+
+.unread:before{
+  content: "(New!)";
+  padding-right: 5px
+}
