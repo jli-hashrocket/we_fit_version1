@@ -1,7 +1,5 @@
-%h3= "You have a message from #{@read_message.sender.username}!"
+%h3= "Subject: #{@read_message.subject}"
 %img{class: 'member_pic'}= image_tag @sender.photo.thumb.url
-
-%p= "Subject: #{@read_message.subject}"
 %p= "From: #{@read_message.sender.username}"
 %p= "Sent at: #{@read_message.sender.created_at}"
 %p= "Message: #{@read_message.body}"
