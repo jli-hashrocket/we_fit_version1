@@ -19,6 +19,19 @@ class MessagesController < ApplicationController
     end
   end
 
+  def new
+    @message = Message.new
+  end
+
+  def create
+    @message = Message.new(message_params)
+    if @message.save
+      redirect_to @message, notice: "You have sent a message to #{@message.username}!"
+    else
+      render :new
+    end
+  end
+
   private
   def message_params
     params.require(:message).permit(:subject, :body, :sender_id, :recipient_id, :read_at, :sender_deleted, :recipient_deleted)

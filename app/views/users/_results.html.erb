@@ -7,7 +7,7 @@
     <% count += 1 %>
       <dt>
         <dd id="member_<%= dom_id(member) %>">
-          <a id="<%= dom_id(member) %>" href="#panel<%= count %>">
+          <a id="<%= dom_id(member) %>" class="member_box" href="#panel<%= count %>">
               <% if member.photo %>
                 <%= image_tag member.photo.thumb.url, class: 'member_pic' %>
               <% end %>
@@ -19,7 +19,7 @@
                 Gender: <%= member.gender %><br/>
               </div>
           </a>
-          <%= button_to 'Add to Favorites', user_favorites_path(member), remote: true, class: "add" %>
+          <a href="<%= new_message_path %>" class="send_message"><i class="fi-mail"></i></a><%= button_to 'Add to Favorites', user_favorites_path(member), remote: true, class: "add" %>
 
           <div id="panel<%= count %>" class="content inactive">
             <div class="content_container">
