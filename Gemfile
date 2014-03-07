@@ -11,6 +11,7 @@ gem 'pg'
 
 # Use Foundation CSS framework
 gem 'foundation-rails'
+gem 'foundation-icons-sass-rails'
 
 # Use Devise
 gem 'devise'

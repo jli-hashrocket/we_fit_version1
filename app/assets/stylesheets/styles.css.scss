@@ -1,3 +1,5 @@
+@import 'foundation-icons';
+
 * {
   margin: 0;
 }
@@ -294,12 +296,12 @@ box-shadow:         1px 1px 3px 0px rgba(50, 50, 50, 0.85);
 
 /*** Accordion ***/
 
-.accordion dd > a{
+.accordion dd > a.member_box{
   background:#0079a1;
   color: #fff !important;
   transition: background 1s;
 }
-.accordion dd > a:hover{
+.accordion dd > a.member_box:hover{
   background: #0090BF !important;
 }
 
