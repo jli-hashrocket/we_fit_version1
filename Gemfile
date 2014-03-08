@@ -31,6 +31,9 @@ gem 'poltergeist'
 #Use Kaminari
 gem 'kaminari'
 
+#Use Chosen
+gem 'chosen-rails'
+
 #Use Geocoder and Google Maps
 gem 'geocoder'
 gem 'gmaps4rails'

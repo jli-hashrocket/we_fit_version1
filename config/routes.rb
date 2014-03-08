@@ -11,6 +11,8 @@ WeFit1::Application.routes.draw do
     collection do
       get 'inbox', to: 'messages#inbox', as: :inbox
       get 'sent', to: 'messages#sent', as: :sent
+      get 'new', to: 'messages#new', as: :new
+      post 'create', to: 'messages#create', as: :create
     end
   end
 

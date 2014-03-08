@@ -41,7 +41,7 @@ div #content{
 }
 
 h1,h2,h3,h4,h5,h6{
-  color: #fff !important;
+  color: #fff;
   font-family: 'Fjalla One', sans-serif !important;
   margin-bottom:40px !important;
 }
@@ -382,4 +382,11 @@ nav.pagination{
 .unread:before{
   content: "(New!)";
   padding-right: 5px
+}
+
+#new_message{
+  color: #000;
+  h2 {
+    color:#000;
+  }
 }
