@@ -296,7 +296,7 @@ box-shadow:         1px 1px 3px 0px rgba(50, 50, 50, 0.85);
 
 /*** Accordion ***/
 
-.accordion dd > a.member_box{
+.accordion dd > a{
   background:#0079a1;
   color: #fff !important;
   transition: background 1s;
@@ -382,11 +382,4 @@ nav.pagination{
 .unread:before{
   content: "(New!)";
   padding-right: 5px
-}
-
-#new_message{
-  color: #000;
-  h2 {
-    color:#000;
-  }
 }
