@@ -22,6 +22,10 @@ class Message < ActiveRecord::Base
     message
   end
 
+  def self.get_recipients
+    recipients = User.all
+  end
+
   def is_inbox_message?(id)
     return true if self.recipient_id == id
     return false
@@ -30,5 +34,6 @@ class Message < ActiveRecord::Base
   def read?
     self.read_at.nil? ? false : true
   end
+
 
 end
