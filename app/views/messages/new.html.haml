@@ -1,1 +1,5 @@
-coming soon
+= simple_form_for(@message) do |f|
+  = f.input :recipient_id, collection: Message.get_recipients, label: 'Send To'
+  = f.input :subject, label: false, placeholder: 'Enter subject ...'
+  = f.input :body, label: false, required: true, placeholder: 'Enter your message ...', input_html: { rows: 10,style: 'width:100%'}
+  = f.button :submit,'Send Message'
