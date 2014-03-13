@@ -11,19 +11,20 @@ feature 'User sends a message', %q{
   # * I must fill the message
   # * I must send the message
 
-  scenario 'chooses a member', js: true do
+  scenario 'sends a message', js: true do
     user = FactoryGirl.create(:user)
-    profile = FactoryGirl.create(:user, email: "jeffsmeels@aol.com")
+    profile = FactoryGirl.create(:user, username:"Jacked", email: "jeffsmeels@aol.com")
 
     sign_in_fill(user)
     click_on "Sign in"
     click_on "Browse Members"
 
-    within "#member_user_#{profile.id}" do
-      page.find("#user_#{profile.id}").trigger('click')
-      page.find('.send_message').trigger('click')
-    end
-    expect(page).to have_content('You have sent a message to #{profile.username}!')
+    visit new_messages_path
+    select "#{profile.username}", from: "message_recipient_id"
+    fill_in "message_subject", with: "Hello"
+    fill_in "message_body", with: "We should talk"
+    click_on "Send Message"
+    expect(page).to have_content("You have sent a message to #{profile.username}!")
   end
 
 end

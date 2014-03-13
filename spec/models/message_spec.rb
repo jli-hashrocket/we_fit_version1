@@ -26,4 +26,9 @@ describe Message do
     end
   end
 
+  context 'is the message an inbox message?' do
+    it 'returns true or false' do
+
+    end
+  end
 end
