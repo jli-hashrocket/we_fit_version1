@@ -62,4 +62,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  def get_usernames
+    "#{username}"
+  end
 end

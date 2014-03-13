@@ -25,8 +25,9 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
+    recipient = User.find(@message.recipient_id)
     if @message.save
-      redirect_to @message, notice: "You have sent a message to #{@message.username}!"
+      redirect_to @message, notice: "You have sent a message to #{recipient.username}!"
     else
       render :new
     end
