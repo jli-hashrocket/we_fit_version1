@@ -20,15 +20,15 @@ $("#message_recipient_id").select2({
       } ) };
     }
   },
-  // initSelection: function(element, callback) {
-  //   var id = $(element).val();
-  //     $.ajax("../to_json",{
-  //       data: [{ id: id }],
-  //       dataType: 'json',
-  //     }).done(function(data) {
-  //       callback(data.text[0])
-  //     });
-  // },
+  initSelection: function(element, callback) {
+    var id = $(element).val();
+      $.ajax("../to_json",{
+        data: [{ id: id }],
+        dataType: 'json',
+      }).done(function(data) {
+        callback(data.result[0])
+      });
+  },
   formatResult: format,
   formatSelection: format
 
