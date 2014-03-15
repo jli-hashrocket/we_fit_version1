@@ -15,6 +15,7 @@
 //= require foundation
 //= require underscore
 //= require gmaps/google
+//= require select2
 //= require_tree .
 //= require_self
 

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
+  respond_to :json
 
   def index
     if params[:within] && (params[:within].to_i > 0)
@@ -9,13 +10,13 @@ class UsersController < ApplicationController
     end
 
     @members = @search.result(distinct: true).page(params[:page]).per(10)
+    @activities = Activity.all
+
     @users = @members.where.not(latitude: nil, longitude: nil)
     @hash = Gmaps4rails.build_markers(@users) do |user, marker|
         marker.lat user.latitude
         marker.lng user.longitude
     end
-
-    @activities = Activity.all
   end
 
   def show
@@ -23,4 +24,8 @@ class UsersController < ApplicationController
     @user_activities = @user.activities
   end
 
+  def to_json
+    @members = User.all
+    render json: @members
+  end
 end

@@ -32,7 +32,7 @@ gem 'poltergeist'
 gem 'kaminari'
 
 #Use Chosen
-gem 'chosen-rails'
+gem 'select2-rails'
 
 #Use Geocoder and Google Maps
 gem 'geocoder'
