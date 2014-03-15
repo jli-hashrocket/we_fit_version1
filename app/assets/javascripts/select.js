@@ -18,17 +18,17 @@ $("#message_recipient_id").select2({
       return { results: $.map( data, function(member, i) {
         return { id: member.id, text: member.username };
       } ) };
-    },
+    }
   },
-  initSelection: function(element, callback) {
-    var id = $(element).val();
-      $.ajax("../to_json",{
-        data: { id: id },
-        dataType: 'json',
-      }).done(function(data) {
-        console.log(data);
-      });
-  },
+  // initSelection: function(element, callback) {
+  //   var id = $(element).val();
+  //     $.ajax("../to_json",{
+  //       data: [{ id: id }],
+  //       dataType: 'json',
+  //     }).done(function(data) {
+  //       callback(data.text[0])
+  //     });
+  // },
   formatResult: format,
   formatSelection: format
 
