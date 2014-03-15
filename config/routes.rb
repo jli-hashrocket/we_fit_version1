@@ -4,6 +4,8 @@ WeFit1::Application.routes.draw do
   resources :users do
     resources :favorites, except: [:destroy]
   end
+  get 'to_json', to: 'users#to_json', as: :to_json
+
 
   resources :favorites, only: [:destroy]
 
