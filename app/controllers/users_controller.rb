@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def to_json
-    @members = User.all
+    @members = User.where("username like ?", "%#{params['q']}%").all
     render json: @members
   end
 end
