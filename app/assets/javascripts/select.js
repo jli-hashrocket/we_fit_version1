@@ -20,16 +20,5 @@ $("#message_recipient_id").select2({
       } ) };
     }
   }
-  // initSelection: function(element, callback) {
-  //   var id = $(element).val();
-  //     $.ajax("../to_json",{
-  //       data: [{ id: id }],
-  //       dataType: 'json',
-  //     }).done(function(data) {
-  //       console.log("hello");
-  //     });
-  // },
-  // formatResult: format,
-  // formatSelection: format
 
 });
