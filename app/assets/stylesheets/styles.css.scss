@@ -383,3 +383,14 @@ nav.pagination{
   content: "(New!)";
   padding-right: 5px
 }
+
+/*** Compose ***/
+form#new_message{
+  .select2-container{
+    width:100%;
+    margin-bottom: 25px;
+  }
+  textarea{
+    height:150px
+  }
+}
