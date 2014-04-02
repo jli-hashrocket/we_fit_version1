@@ -1,0 +1,6 @@
+= simple_form_for(@message) do |f|
+  = f.hidden_field :recipient_id
+  = f.input :subject, label: false, placeholder: 'Enter subject ...'
+  = f.input :body, label: false, required: true, placeholder: 'Enter your message ...', input_html: { rows: 50 }
+  = f.hidden_field :sender_id, value: current_user.id
+  = f.button :submit,'Send Message'
