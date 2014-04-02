@@ -27,8 +27,14 @@ describe Message do
   end
 
   context 'is the message an inbox message?' do
-    it 'returns true or false' do
+    it 'returns true if recipient' do
+      is_inbox_message = message1.is_inbox_message?(recipient.id)
+      expect(is_inbox_message).to eql(true)
+    end
 
+    it 'returns false if sender' do
+      is_inbox_message = message1.is_inbox_message?(sender.id)
+      expect(is_inbox_message).to eql(false)
     end
   end
 end
