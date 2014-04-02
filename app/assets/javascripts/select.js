@@ -1,7 +1,3 @@
-var format = function(member){
-  return member.text;
-};
-
 $("#message_recipient_id").select2({
   placeholder: "Search for a member",
   minimumInputLength: 2,
@@ -16,9 +12,8 @@ $("#message_recipient_id").select2({
     },
     results: function(data, page){
       return { results: $.map( data, function(member) {
-        return { id: member.id, text: member.username };
+        return { id: member.id, text: member.username};
       } ) };
     }
-  }
-
+  },
 });
